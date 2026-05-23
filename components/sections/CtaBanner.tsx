@@ -1,0 +1,41 @@
+"use client";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { fadeUp } from "@/lib/animations";
+
+interface CtaBannerProps {
+  heading: string;
+  subheading?: string;
+  cta: { label: string; href: string };
+}
+
+export default function CtaBanner({ heading, subheading, cta }: CtaBannerProps) {
+  return (
+    <section className="relative overflow-hidden py-28 bg-primary text-white text-center">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-cover bg-center opacity-[0.16]"
+        style={{ backgroundImage: "url('/brand/background-pattern-thin.svg')" }}
+      />
+      <div className="absolute inset-0 bg-primary/78" />
+      <motion.div
+        className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <h2 className="text-4xl md:text-5xl font-bold mb-5">{heading}</h2>
+        {subheading && (
+          <p className="text-lg opacity-70 mb-10 max-w-xl mx-auto">{subheading}</p>
+        )}
+        <Link
+          href={cta.href}
+          className="inline-block bg-accent text-white px-10 py-4 font-bold tracking-widest text-xs uppercase hover:bg-white hover:text-primary transition-colors duration-300"
+        >
+          {cta.label}
+        </Link>
+      </motion.div>
+    </section>
+  );
+}
