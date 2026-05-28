@@ -65,7 +65,7 @@ export default async function Contact({ searchParams }: ContactPageProps) {
         <section className="relative overflow-hidden bg-[#002E7D] py-14 text-white md:py-16">
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-cover bg-center [background-attachment:fixed]"
+            className="absolute inset-0 bg-cover bg-center md:[background-attachment:fixed]"
             style={{ backgroundImage: "url('/brand/background-pattern-footer.svg')" }}
           />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
