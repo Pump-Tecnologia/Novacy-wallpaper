@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className="relative overflow-hidden bg-[#002E7D] text-white">
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-cover bg-center md:[background-attachment:fixed]"
+        className="absolute inset-0 bg-[length:auto_130%] bg-center md:bg-cover md:[background-attachment:fixed]"
         style={{ backgroundImage: "url('/brand/background-pattern-footer.svg')" }}
       />
 
