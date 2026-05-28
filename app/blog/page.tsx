@@ -104,7 +104,7 @@ export default function Blog() {
         <section className="relative overflow-hidden bg-[#002E7D] py-14 text-white md:py-16">
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-center bg-no-repeat bg-[length:1500px_1500px] md:bg-cover md:[background-attachment:fixed]"
+            className="absolute inset-0 bg-cover bg-center [background-attachment:fixed]"
             style={{ backgroundImage: "url('/brand/background-pattern-footer.svg')" }}
           />
 
