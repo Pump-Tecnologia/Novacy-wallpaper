@@ -20,7 +20,7 @@ export default function CtaBanner({ heading, subheading, cta, integrated = false
       {!integrated && (
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-cover bg-center [background-attachment:fixed]"
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/brand/background-pattern-footer.svg')" }}
         />
       )}
