@@ -2,7 +2,7 @@
 
 @theme {
   --color-primary: #002e7d;
-  --color-secondary: #004298;
+  --color-secondary: #004198;
   --color-accent: #0259df;
   --color-background: #ffffff;
 
@@ -19,6 +19,13 @@ body {
   background: white;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
 h1,
 h2,
 h3,
@@ -26,4 +33,9 @@ h3,
   font-family: var(--font-chakra-petch), sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+[data-mobile-carousel-slide] {
+  position: relative;
+  isolation: isolate;
 }

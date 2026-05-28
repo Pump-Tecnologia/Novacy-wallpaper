@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import MobileCarousel from "@/components/MobileCarousel";
 import Button from "@/components/ui/Button";
 import { fadeUp } from "@/lib/animations";
 
@@ -20,7 +21,7 @@ interface BrandEssenceSectionProps {
 const methodSummary: Record<string, string> = {
   "01": "Scope, space, quote.",
   "02": "Clean, smooth, ready.",
-  "03": "Alignment, cuts, finish.",
+  "03": "Precision alignment, clean cuts, flawless finish.",
   "04": "Review, refine, approve.",
 };
 
@@ -91,7 +92,25 @@ export default function BrandEssenceSection({
             <p className="mb-8 text-[10px] font-bold uppercase tracking-[0.24em] text-white/50">
               The Method
             </p>
-            <div className="grid gap-8 md:grid-cols-4 md:gap-6">
+            <MobileCarousel label="Process Line" theme="dark">
+              {process.map((step) => (
+                <div
+                  key={step.number}
+                  className="relative min-h-[190px] border border-gray-200 border-t-accent bg-white p-6"
+                >
+                  <div className="relative flex h-full flex-col">
+                    <h3 className="text-[13px] font-bold uppercase tracking-[0.12em] text-primary">
+                      {step.title}
+                    </h3>
+                    <p className="mt-3 text-[13px] leading-relaxed text-gray-600">
+                      {methodSummary[step.number] ?? step.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </MobileCarousel>
+
+            <div className="hidden gap-8 md:grid md:grid-cols-4 md:gap-6">
               {process.map((step, index) => (
                 <div
                   key={step.number}

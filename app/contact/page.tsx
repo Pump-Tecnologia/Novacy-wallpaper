@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { ArrowRight, Clock, Ruler, Wallpaper } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import ContactRequestSection from "@/components/ContactRequestSection";
+import MobileCarousel from "@/components/MobileCarousel";
 import InternalPageHero from "@/components/sections/InternalPageHero";
 import { contactContent, servicesContent } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact | NOVACY Wallpaper Installation",
   description:
-    "Request a wallpaper installation consultation with NOVACY across New York City, Long Island, and Northern New Jersey.",
+    "Request a wallpaper installation consultation with NOVACY across New York & New Jersey.",
 };
 
 const prepIcons = [Ruler, Wallpaper, Clock];
@@ -61,11 +62,11 @@ export default async function Contact({ searchParams }: ContactPageProps) {
       />
 
       <AnimatedSection>
-        <section className="relative overflow-hidden bg-gray-50 py-14 md:py-16">
+        <section className="relative overflow-hidden bg-[#002E7D] py-14 text-white md:py-16">
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-[length:120%_auto] bg-center bg-no-repeat opacity-[0.14] [filter:brightness(0)_saturate(100%)_invert(72%)_sepia(46%)_saturate(417%)_hue-rotate(183deg)_brightness(103%)_contrast(91%)]"
-            style={{ backgroundImage: "url('/brand/background-pattern-thin.svg')" }}
+            className="absolute inset-0 bg-cover bg-center [background-attachment:fixed]"
+            style={{ backgroundImage: "url('/brand/background-pattern-footer.svg')" }}
           />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-8 grid gap-4 md:grid-cols-[0.8fr_1fr] md:items-end">
@@ -73,17 +74,38 @@ export default async function Contact({ searchParams }: ContactPageProps) {
                 <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-accent">
                   Before the Quote
                 </p>
-                <h2 className="text-3xl font-bold leading-tight text-primary md:text-4xl">
-                  What Helps Us Scope It
+                <h2 className="text-3xl font-bold leading-tight text-white md:text-4xl">
+                  What Helps Define the Scope
                 </h2>
               </div>
-              <p className="max-w-xl text-base leading-relaxed text-gray-600">
+              <p className="max-w-xl text-base leading-relaxed text-white/72">
                 A few clear details help us understand the surface, timeline, and installation
                 requirements before preparing a custom quote.
               </p>
             </div>
 
-            <div className="grid border border-gray-200 border-t-accent bg-white md:grid-cols-3">
+            <MobileCarousel label="Quote Inputs" theme="dark">
+              {quotePrep.map((item, index) => {
+                const Icon = prepIcons[index] ?? ArrowRight;
+
+                return (
+                  <div
+                    key={item.title}
+                    className="group min-h-[260px] border border-gray-200 border-t-accent bg-white p-6"
+                  >
+                    <div className="mb-8 flex justify-end">
+                      <span className="flex h-11 w-11 items-center justify-center border border-accent/25 text-accent">
+                        <Icon className="h-4 w-4" />
+                      </span>
+                    </div>
+                    <h3 className="mb-4 text-xl font-bold text-primary">{item.title}</h3>
+                    <p className="text-[13px] leading-relaxed text-gray-600">{item.desc}</p>
+                  </div>
+                );
+              })}
+            </MobileCarousel>
+
+            <div className="hidden border border-gray-200 border-t-accent bg-white md:grid md:grid-cols-3">
               {quotePrep.map((item, index) => {
                 const Icon = prepIcons[index] ?? ArrowRight;
 

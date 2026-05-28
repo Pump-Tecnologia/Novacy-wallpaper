@@ -7,17 +7,23 @@ interface CtaBannerProps {
   heading: string;
   subheading?: string;
   cta: { label: string; href: string };
+  integrated?: boolean;
 }
 
-export default function CtaBanner({ heading, subheading, cta }: CtaBannerProps) {
+export default function CtaBanner({ heading, subheading, cta, integrated = false }: CtaBannerProps) {
   return (
-    <section className="relative overflow-hidden py-28 bg-primary text-white text-center">
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-cover bg-center opacity-[0.16]"
-        style={{ backgroundImage: "url('/brand/background-pattern-thin.svg')" }}
-      />
-      <div className="absolute inset-0 bg-primary/78" />
+    <section
+      className={`relative overflow-hidden text-center text-white ${
+        integrated ? "bg-transparent py-16 md:py-20" : "bg-[#002E7D] py-28"
+      }`}
+    >
+      {!integrated && (
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-cover bg-center [background-attachment:fixed]"
+          style={{ backgroundImage: "url('/brand/background-pattern-footer.svg')" }}
+        />
+      )}
       <motion.div
         className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8"
         variants={fadeUp}

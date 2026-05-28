@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import MobileCarousel from "@/components/MobileCarousel";
 import { fadeUp, staggerContainer, staggerItem } from "@/lib/animations";
 
 interface Step { number: string; title: string; desc: string }
@@ -24,8 +25,20 @@ export default function ProcessSteps({ heading, subheading, steps }: ProcessStep
           <p className="opacity-70 max-w-xl mx-auto">{subheading}</p>
         </motion.div>
 
+        <MobileCarousel label="Process Line" theme="dark">
+          {steps.map((step) => (
+            <div
+              key={step.number}
+              className="min-h-[200px] border border-gray-200 border-t-accent bg-white p-6"
+            >
+              <h3 className="mb-2 text-[15px] font-bold text-primary">{step.title}</h3>
+              <p className="text-[13px] leading-relaxed text-gray-600">{step.desc}</p>
+            </div>
+          ))}
+        </MobileCarousel>
+
         <motion.div
-          className="grid md:grid-cols-4 gap-0"
+          className="hidden md:grid md:grid-cols-4 gap-0"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"

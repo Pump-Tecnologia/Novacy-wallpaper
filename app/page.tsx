@@ -7,9 +7,9 @@ import GalleryPreview    from "@/components/sections/GalleryPreview";
 import CtaBanner         from "@/components/sections/CtaBanner";
 
 export const metadata: Metadata = {
-  title: "NOVACY | Premium Wallpaper Installation in NYC",
+  title: "NOVACY | Premium Wallpaper Installation in NY & NJ",
   description:
-    "Premium wallpaper installation in New York City, Long Island, and Northern New Jersey. Nearly a decade of craftsmanship and precision.",
+    "Premium wallpaper installation across New York & New Jersey. Nearly a decade of craftsmanship and precision.",
 };
 
 export default function Home() {
@@ -40,13 +40,12 @@ export default function Home() {
       />
 
       {/* 3 — BRAND ESSENCE */}
-      <div className="relative overflow-hidden bg-primary text-white">
+      <div className="relative overflow-hidden bg-[#004198] text-white">
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-cover bg-center opacity-[0.12]"
-          style={{ backgroundImage: "url('/brand/background-pattern-thin.svg')" }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/brand/background-pattern-blue.svg')" }}
         />
-        <div className="absolute inset-0 bg-primary/78" />
         <div className="relative">
           <BrandEssenceSection
             heading={brandEssence.heading}

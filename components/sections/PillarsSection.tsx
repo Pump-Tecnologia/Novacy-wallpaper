@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import MobileCarousel from "@/components/MobileCarousel";
 import { fadeUp, staggerContainer, staggerItem } from "@/lib/animations";
 
 interface Pillar {
@@ -29,8 +30,20 @@ export default function PillarsSection({ heading, items }: PillarsSectionProps) 
         </motion.div>
 
         {/* Cards com stagger */}
+        <MobileCarousel label="Core Pillars">
+          {items.map((pillar) => (
+            <div
+              key={pillar.title}
+              className="h-full border border-gray-200 border-t-accent bg-white p-8"
+            >
+              <h3 className="mb-4 text-xl font-bold text-primary">{pillar.title}</h3>
+              <p className="leading-relaxed text-gray-600">{pillar.desc}</p>
+            </div>
+          ))}
+        </MobileCarousel>
+
         <motion.div
-          className="grid md:grid-cols-3 gap-12"
+          className="hidden md:grid md:grid-cols-3 gap-12"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"

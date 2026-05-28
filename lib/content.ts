@@ -9,7 +9,7 @@ export const brand = {
   name: "NOVACY",
   tagline: "WALLPAPER INSTALLATION",
   claim: "Renewal & Permanence",
-  location: "NYC & Northern New Jersey",
+  location: "New York & New Jersey",
   email: "info@novacywallpaper.com",
   phone: "+1 (551) 266-6735",
   phoneHref: "tel:+15512666735",
@@ -30,11 +30,11 @@ export const homeContent = {
   hero: {
     headline: "Building Visual",
     headlineAccent: "Legacies",
-    headlineSuffix: "in NYC",
+    headlineSuffix: "Through Wallpaper",
     subheadline:
-      "Nova represents renewal; Legacy represents permanence. We transform residential and commercial spaces across New York City and Northern New Jersey with lasting technical precision.",
-    ctaPrimary: { label: "VIEW SERVICES", href: "/services" },
-    ctaSecondary: { label: "GET A QUOTE", href: "/contact" },
+      "Nova represents renewal; Legacy represents permanence. We transform residential and commercial spaces through precision wallpaper installation and architectural detail.",
+    ctaPrimary: { label: "GET A QUOTE", href: "/contact" },
+    ctaSecondary: { label: "VIEW SERVICES", href: "/services" },
     beforeImage: "/hero/hero-before.png",
     afterImage: "/hero/hero-after.png",
   },
@@ -59,8 +59,8 @@ export const homeContent = {
 
   brandEssence: {
     heading: "More Than Installation",
-    body: "NOVACY transforms walls into visual legacies through structure, geometry, and architectural precision.",
-    cta: { label: "LEARN OUR STORY", href: "/about" },
+    body: "NOVACY transforms interiors through precision wallpaper installation and architectural detail.",
+    cta: { label: "WHY NOVACY", href: "/about" },
     image: "/images/home/brand-essence-detail.png",
     imagePlaceholder: "800x800 — Architectural wallpaper pattern detail",
   },
@@ -118,7 +118,7 @@ export const aboutContent = {
       },
       {
         title: "Clear Communication",
-        desc: "Clear expectations from the first call to the final walkthrough, including schedule, material status, and site needs.",
+        desc: "Clear expectations from the first call to the final walkthrough, including schedule, wallpaper details, and site needs.",
         image: "/images/about/standard-consultation.png",
         imagePlaceholder: "Consultation / site walkthrough",
       },
@@ -138,7 +138,7 @@ export const aboutContent = {
   },
 
   nyc: {
-    heading: "Rooted in New York",
+    heading: "Built in New York",
     body: "Our identity is inspired by the architectural and urban elements of New York City. The Statue of Liberty represents identity, while the bridges symbolize the connection and structural support we bring to every project.",
     symbols: [
       {
@@ -161,7 +161,7 @@ export const aboutContent = {
     },
     vision: {
       title: "Vision",
-      desc: "To become one of the most trusted names in premium residential and commercial wallpaper installation across New York City and Northern New Jersey.",
+      desc: "To become one of the most trusted names in premium residential and commercial wallpaper installation across New York & New Jersey.",
     },
     values: {
       title: "Values",
@@ -187,9 +187,9 @@ export const servicesContent = {
   hero: {
     eyebrow: "Services",
     heading: "Wallpaper Services",
-    headingAccent: "Built Around Scope",
+    headingAccent: "Built Around Precision",
     subheading:
-      "Residential installation, commercial execution, removal, and surface preparation for projects that need clean planning before a lasting finish.",
+      "Residential and commercial wallpaper installation, removal, and surface preparation built for clean execution and lasting results.",
     backgroundImage: "/hero/hero-after.png",
     backgroundPosition: "center right",
   },
@@ -197,7 +197,7 @@ export const servicesContent = {
   intro: {
     label: "Choose the Right Path",
     heading: "Three Services. One Installation Standard.",
-    body: "Every project starts with the wall, the material, and the expected finish. NOVACY installs a wide range of residential and commercial wallpapers, then defines the right preparation before any panel goes up.",
+    body: "Every project starts with the wall condition, material selection, and expected finish. NOVACY defines the right preparation before installation begins.",
   },
 
   deliverables: [
@@ -210,8 +210,8 @@ export const servicesContent = {
 
   serviceAreas: {
     label: "Service Area",
-    heading: "Focused Across NYC & Northern New Jersey",
-    body: "NOVACY serves high-intent residential and commercial projects in New York City, Long Island, and key Northern New Jersey markets.",
+    heading: "Serving Clients Across NY & NJ",
+    body: "NOVACY provides residential and commercial wallpaper installation across New York & New Jersey, including select cities, counties, and surrounding areas.",
     items: [
       "Manhattan",
       "Brooklyn",
@@ -228,13 +228,39 @@ export const servicesContent = {
       "Williamsburg",
       "Dumbo",
     ],
+    groups: [
+      {
+        title: "New York",
+        items: [
+          "Manhattan",
+          "Brooklyn",
+          "Queens",
+          "Long Island",
+          "SoHo",
+          "Tribeca",
+          "Upper East Side",
+          "Williamsburg",
+          "Dumbo",
+        ],
+      },
+      {
+        title: "New Jersey",
+        items: [
+          "Jersey City",
+          "Hoboken",
+          "Bergen County",
+          "Essex County",
+          "Union County",
+        ],
+      },
+    ],
   },
 
   services: [
     {
       title: "Residential Installation",
       eyebrow: "Homes / Apartments / Feature Walls",
-      desc: "Precise wallpaper installation for lived-in spaces where cleanliness, detail, material guidance, and respect for the home matter as much as the final look.",
+      desc: "Precision wallpaper installation for lived-in spaces where cleanliness, material guidance, and attention to detail define the final result.",
       bestFor: "Bedrooms, bathrooms, living rooms, closets, hallways, ceilings, accent walls, apartments, and full homes.",
       outcome: "A finished wall that feels integrated with the room, not simply covered.",
       materials: [
@@ -244,7 +270,7 @@ export const servicesContent = {
         "Silk",
         "Fabric-backed vinyl",
         "Custom murals",
-        "High-end and imported wallpapers",
+        "Luxury & imported wallpapers",
       ],
       notes: "We guide clients on the right material for each room, especially moisture-sensitive spaces like bathrooms.",
       image: "/images/services/residential-installation.png",
@@ -255,9 +281,9 @@ export const servicesContent = {
     {
       title: "Commercial Installation",
       eyebrow: "Offices / Retail / Hospitality",
-      desc: "Schedule-conscious installation for public-facing and operational spaces where durability, consistency, sequencing, and minimal disruption are essential.",
+      desc: "Precision commercial installation designed for operational spaces where durability and minimal disruption matter.",
       bestFor: "Gyms, offices, stores, restaurants, hotels, corporate spaces, reception areas, corridors, and shared commercial interiors.",
-      outcome: "A professional finish that supports the environment without interrupting the business.",
+      outcome: "A professional finish that complements the space without interrupting business operations.",
       materials: [
         "Commercial wallcoverings",
         "Vinyl",
@@ -277,7 +303,7 @@ export const servicesContent = {
       eyebrow: "Removal / Repair / Ready-to-Install Walls",
       desc: "Careful removal and wall preparation for surfaces that need a clean, sealed foundation before new wallpaper can perform correctly.",
       bestFor: "Old wallpaper, adhesive residue, damaged surfaces, uneven walls, skim coat needs, and rooms being prepared for a new installation.",
-      outcome: "A wall surface that is clean, smooth, assessed, and ready for the next finish.",
+      outcome: "A properly prepared surface ready for long-lasting wallpaper installation.",
       materials: [
         "Full wallpaper removal",
         "Surface cleaning",
@@ -297,12 +323,12 @@ export const servicesContent = {
 
   reservation: {
     label: "Quote First",
-    heading: "Measured Scope Before Scheduling",
-    body: "Every project is priced after we review measurements, wall condition, material, and timeline. Once the quote is approved, a 50% deposit secures the service date.",
+    heading: "Defined Scope Before Scheduling",
+    body: "Every project is priced after reviewing measurements, wall conditions, materials, and scheduling requirements. Once the quote is approved, a 50% deposit secures the service date.",
     items: [
       {
         title: "Send the Details",
-        desc: "Choose the service and share measurements, photos, material status, and project location.",
+        desc: "Choose the service and share measurements, photos, wallpaper details, and project location.",
       },
       {
         title: "Approve the Quote",
@@ -335,10 +361,10 @@ export const servicesContent = {
   },
 
   cta: {
-    heading: "Ready to define the scope?",
+    heading: "Ready to transform your space?",
     subheading:
-      "Send the service type, dimensions, material status, and project location. We will review the scope and define the next step.",
-    cta: { label: "REQUEST CONSULTATION", href: "/contact" },
+      "Share your project type, dimensions, wallpaper details, and location. NOVACY will review the scope and define the next step.",
+    cta: { label: "GET A FREE QUOTE", href: "/contact" },
   },
 } as const;
 
@@ -348,7 +374,7 @@ export const reviewsContent = {
   hero: {
     heading: "What Clients Say",
     subheading:
-      "Real feedback from homeowners, businesses, and property managers across New York City and Northern New Jersey.",
+      "Real feedback from homeowners, businesses, and property managers across New York & New Jersey.",
   },
   cta: {
     heading: "Ready to experience the difference?",
@@ -464,11 +490,11 @@ export const contactContent = {
     headline: "Start Your",
     headlineAccent: "Project",
     subheadline:
-      "Tell us about the space, material, and location. We will help define the next step.",
+      "Tell us about the space, wallpaper, and project location. NOVACY will review the scope and define the next step.",
     backgroundImage: "/hero/hero-after.png",
     backgroundPosition: "center right",
   },
-  heading: "Request a Consultation",
+  heading: "Request Project Consultation",
   subheading:
     "Share the essentials and we will respond with the next step for your project.",
   serviceOptions: [
@@ -486,10 +512,10 @@ export const contactContent = {
   contactMethods: [
     { label: "Email", value: brand.email, href: `mailto:${brand.email}` },
     { label: "Phone", value: brand.phone, href: brand.phoneHref },
-    { label: "Service Area", value: "NYC & Northern NJ", href: null },
+    { label: "Service Area", value: "New York & New Jersey", href: null },
   ],
   whatsapp: {
-    label: "Continue on WhatsApp",
+    label: "Continue via WhatsApp",
     phone: "15512666735",
     message:
       "Hi NOVACY, I submitted a project request on the website and would like to continue by WhatsApp.",
@@ -512,14 +538,14 @@ export const contactContent = {
     "After the quote is approved, a 50% deposit is required to secure the project date.",
   imagePlaceholder: "Team consultation / site walkthrough",
   image: "/images/contact/default-consultation.png",
-  submitLabel: "SEND REQUEST",
+  submitLabel: "REQUEST PROJECT CONSULTATION",
 } as const;
 
 // ─── FOOTER ──────────────────────────────────────────────────
 
 export const footerContent = {
   about:
-    "Professional wallpaper installation serving New York City, Long Island, and Northern New Jersey — technical precision, structural logic, aesthetic excellence.",
+    "Specialized wallpaper installation focused on precision, preparation, and long-lasting results across NY & NJ.",
   services: [
     { label: "Residential Installation", href: "/services#residential" },
     { label: "Commercial Installation", href: "/services#commercial" },
@@ -549,7 +575,7 @@ export const homeExtras = {
       {
         number: "01",
         title: "Free Consultation",
-        desc: "We assess your space, discuss your vision, and provide a detailed quote — no surprises, no obligations.",
+        desc: "Project scope, measurements, quote.",
       },
       {
         number: "02",
@@ -559,7 +585,7 @@ export const homeExtras = {
       {
         number: "03",
         title: "Expert Installation",
-        desc: "Pattern alignment, precise cuts, clean edges. Every panel is applied with the same attention to detail, from the first to the last.",
+        desc: "Precision alignment, clean cuts, flawless finish.",
       },
       {
         number: "04",
@@ -570,8 +596,8 @@ export const homeExtras = {
   },
 
   servicesPreview: {
-    heading: "What We Do",
-    subheading: "Focused wallpaper services for homes, commercial spaces, and walls that need proper preparation before a lasting finish.",
+    heading: "Specialized Wallpaper Services",
+    subheading: "Specialized wallpaper solutions for residential and commercial spaces, with proper preparation for long-lasting results.",
     cta: { label: "VIEW ALL SERVICES", href: "/services" },
     items: [
       {
@@ -606,8 +632,8 @@ export const homeExtras = {
   },
 
   gallery: {
-    heading: "Recent Work",
-    subheading: "A selection of installations across New York City, Long Island, and nearby markets.",
+    heading: "Featured Installations",
+    subheading: "A selection of residential and commercial installations across New York and New Jersey.",
     cta: { label: "VIEW SERVICES", href: "/services" },
     images: [
       { src: "/images/home/gallery-residential-manhattan.jpg", alt: "Residential installation — Manhattan", aspect: "portrait" },
@@ -621,7 +647,7 @@ export const homeExtras = {
 
   ctaBanner: {
     heading: "Ready to Transform Your Space?",
-    subheading: "Get a free consultation — we serve New York City, Long Island, and Northern New Jersey.",
+    subheading: "Serving residential and commercial clients across New York and New Jersey.",
     cta: { label: "GET A FREE QUOTE", href: "/contact" },
   },
 

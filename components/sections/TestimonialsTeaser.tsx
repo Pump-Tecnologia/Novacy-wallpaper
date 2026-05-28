@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import MobileCarousel from "@/components/MobileCarousel";
 import { fadeUp, staggerContainer, staggerItem } from "@/lib/animations";
 
 interface Review {
@@ -49,8 +50,26 @@ export default function TestimonialsTeaser({ heading, reviews, cta }: Testimonia
           </Link>
         </motion.div>
 
+        <MobileCarousel label="Client Notes">
+          {reviews.map((review, i) => (
+            <div
+              key={i}
+              className="flex h-full min-h-[280px] flex-col border border-gray-200 border-t-accent bg-white p-7"
+            >
+              <Stars rating={review.rating} />
+              <p className="flex-1 text-sm italic leading-relaxed text-gray-600">
+                &ldquo;{review.text}&rdquo;
+              </p>
+              <div className="mt-6 border-t border-gray-100 pt-5">
+                <p className="text-sm font-bold text-primary">{review.name}</p>
+                <p className="mt-0.5 text-xs text-gray-400">{review.location}</p>
+              </div>
+            </div>
+          ))}
+        </MobileCarousel>
+
         <motion.div
-          className="grid md:grid-cols-3 gap-8"
+          className="hidden md:grid md:grid-cols-3 gap-8"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"

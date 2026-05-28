@@ -42,7 +42,7 @@ Hero images already live in:
 
 - `blog/how-to-choose-wallpaper-nyc-apartment.jpg` — apartment wall, material sample, or natural light.
 - `blog/commercial-wallpaper-installation-what-to-expect.jpg` — commercial interior, reception wall, or installer at work.
-- `blog/wallpaper-removal-guide-new-york.jpg` — wallpaper removal, wall prep, or clean surface detail.
+- `blog/wallpaper-removal-guide-new-york1.jpg` — wallpaper removal, wall prep, or clean surface detail.
 - `blog/best-wallpaper-styles-luxury-interiors-nyc.jpg` — luxury interior, textured wallcovering, or finished premium room.
 - `blog/wallpaper-vs-paint-which-is-right-for-you.jpg` — painted wall and wallpaper sample/material comparison.
 - `blog/accent-wall-ideas-new-york-homes.jpg` — finished accent wall in a residential space.

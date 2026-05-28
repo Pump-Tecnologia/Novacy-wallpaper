@@ -22,13 +22,6 @@ const requiredWhatsappFields = [
   "name",
   "email",
   "phone",
-  "serviceType",
-  "location",
-  "dimensions",
-  "materialStatus",
-  "timeline",
-  "photoLink",
-  "message",
 ] as const;
 
 function getFormValues(form: HTMLFormElement) {
@@ -56,16 +49,16 @@ function buildWhatsappMessage(values: ReturnType<typeof getFormValues>) {
     `Name: ${values.name}`,
     `Email: ${values.email}`,
     `Phone: ${values.phone}`,
-    `Service: ${values.serviceType}`,
-    `Location: ${values.location}`,
-    `Dimensions: ${values.dimensions}`,
-    `Material status: ${values.materialStatus}`,
+    `Service: ${values.serviceType || "Client will confirm later"}`,
+    `Location: ${values.location || "Client will confirm later"}`,
+    `Dimensions: ${values.dimensions || "Client will confirm later"}`,
+    `Material status: ${values.materialStatus || "Client will confirm later"}`,
     `Material / roll details: ${values.materialDetails || "Client will confirm later"}`,
-    `Timeline: ${values.timeline}`,
-    `Photo link: ${values.photoLink}`,
+    `Timeline: ${values.timeline || "Client will confirm later"}`,
+    `Photo link: ${values.photoLink || "Client will confirm later"}`,
     "",
     "Message:",
-    values.message,
+    values.message || "Client will confirm later",
   ].join("\n");
 }
 
@@ -119,7 +112,7 @@ export default function ContactForm({
 
     if (missingField) {
       setStatus("error");
-      setMessage("Please complete all fields before continuing on WhatsApp.");
+      setMessage("Please complete your name, email, and phone before continuing via WhatsApp.");
       return;
     }
 
@@ -130,7 +123,7 @@ export default function ContactForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-5 md:grid-cols-2">
+    <form onSubmit={handleSubmit} className="grid min-w-0 gap-5 md:grid-cols-2">
       <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" />
 
       <div className="flex flex-col">
@@ -141,7 +134,7 @@ export default function ContactForm({
           required
           name="name"
           type="text"
-          className="border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
           placeholder="Your name"
         />
       </div>
@@ -153,7 +146,7 @@ export default function ContactForm({
           required
           name="email"
           type="email"
-          className="border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
           placeholder="you@example.com"
         />
       </div>
@@ -165,7 +158,7 @@ export default function ContactForm({
           required
           name="phone"
           type="tel"
-          className="border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
           placeholder="(000) 000-0000"
         />
       </div>
@@ -174,11 +167,10 @@ export default function ContactForm({
           Service Type
         </label>
         <select
-          required
           name="serviceType"
           defaultValue={initialService}
           onChange={(event) => onServiceChange?.(event.target.value)}
-          className="border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors focus:border-accent"
         >
           {serviceOptions.map((opt) => (
             <option key={opt}>{opt}</option>
@@ -190,10 +182,9 @@ export default function ContactForm({
           Project Location
         </label>
         <input
-          required
           name="location"
           type="text"
-          className="border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
           placeholder="City, state, or neighborhood"
         />
       </div>
@@ -204,7 +195,7 @@ export default function ContactForm({
         <input
           name="dimensions"
           type="text"
-          className="border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
           placeholder="Example: 12 ft x 9 ft, 2 walls"
         />
       </div>
@@ -214,7 +205,7 @@ export default function ContactForm({
         </label>
         <select
           name="materialStatus"
-          className="border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors focus:border-accent"
         >
           {materialOptions.map((opt) => (
             <option key={opt}>{opt}</option>
@@ -228,8 +219,8 @@ export default function ContactForm({
         <input
           name="materialDetails"
           type="text"
-          className="border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
-          placeholder="Vinyl, non-woven, grasscloth, mural, brand, roll size, or 'not sure yet'"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          placeholder="Type, brand, roll size, or not sure yet"
         />
       </div>
       <div className="flex flex-col">
@@ -239,7 +230,7 @@ export default function ContactForm({
         <input
           name="timeline"
           type="text"
-          className="border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
           placeholder="ASAP, this month, flexible..."
         />
       </div>
@@ -250,7 +241,7 @@ export default function ContactForm({
         <input
           name="photoLink"
           type="url"
-          className="border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
           placeholder="Google Drive, Dropbox, iCloud..."
         />
       </div>
@@ -259,10 +250,9 @@ export default function ContactForm({
           Message
         </label>
         <textarea
-          required
           name="message"
           rows={5}
-          className="resize-none border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 resize-none border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
           placeholder="Tell us about the room, wall condition, wallpaper material, timeline, and any important details."
         />
       </div>
@@ -281,11 +271,11 @@ export default function ContactForm({
         </div>
       )}
 
-      <div className="grid gap-3 md:col-span-2 sm:grid-cols-2">
+      <div className="grid min-w-0 gap-3 md:col-span-2 sm:grid-cols-2">
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="group inline-flex items-center justify-center gap-3 bg-accent px-7 py-4 text-xs font-bold uppercase tracking-[0.22em] text-white transition-colors hover:bg-primary disabled:cursor-not-allowed disabled:opacity-70"
+          className="group inline-flex min-h-14 w-full min-w-0 items-center justify-center gap-3 bg-accent px-4 py-4 text-center text-[10px] font-bold uppercase leading-relaxed tracking-[0.16em] text-white transition-colors hover:bg-primary disabled:cursor-not-allowed disabled:opacity-70 sm:px-7 sm:text-xs sm:tracking-[0.22em]"
         >
           {status === "submitting" ? "Sending..." : submitLabel}
           <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -293,7 +283,7 @@ export default function ContactForm({
         <button
           type="button"
           onClick={handleWhatsapp}
-          className="group inline-flex items-center justify-center gap-3 border border-primary px-7 py-4 text-xs font-bold uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary hover:text-white"
+          className="group inline-flex min-h-14 w-full min-w-0 items-center justify-center gap-3 border border-primary px-4 py-4 text-center text-[10px] font-bold uppercase leading-relaxed tracking-[0.14em] text-primary transition-colors hover:bg-primary hover:text-white sm:px-7 sm:text-xs sm:tracking-[0.18em]"
         >
           {whatsapp.label}
           <MessageCircle className="h-4 w-4 transition-transform group-hover:translate-x-1" />

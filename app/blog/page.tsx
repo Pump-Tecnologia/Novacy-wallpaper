@@ -3,14 +3,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BookOpen, CalendarDays } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import MobileCarousel from "@/components/MobileCarousel";
 import CtaBanner from "@/components/sections/CtaBanner";
 import InternalPageHero from "@/components/sections/InternalPageHero";
 import { blogContent, homeExtras } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Blog | NOVACY Wallpaper Installation NYC",
+  title: "Blog | NOVACY Wallpaper Installation NY & NJ",
   description:
-    "Wallpaper installation guides, material tips, and planning notes for residential and commercial projects across New York City and Northern New Jersey.",
+    "Wallpaper installation guides, material tips, and planning notes for residential and commercial projects across New York & New Jersey.",
 };
 
 function formatDate(dateStr: string) {
@@ -100,11 +101,11 @@ export default function Blog() {
       </AnimatedSection>
 
       <AnimatedSection>
-        <section className="relative overflow-hidden bg-gray-50 py-14 md:py-16">
+        <section className="relative overflow-hidden bg-[#002E7D] py-14 text-white md:py-16">
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-[length:125%_auto] bg-center bg-no-repeat opacity-[0.12] [filter:brightness(0)_saturate(100%)_invert(72%)_sepia(46%)_saturate(417%)_hue-rotate(183deg)_brightness(103%)_contrast(91%)]"
-            style={{ backgroundImage: "url('/brand/background-pattern-thin.svg')" }}
+            className="absolute inset-0 bg-cover bg-center [background-attachment:fixed]"
+            style={{ backgroundImage: "url('/brand/background-pattern-footer.svg')" }}
           />
 
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -113,17 +114,59 @@ export default function Blog() {
                 <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-accent">
                   Resource Library
                 </p>
-                <h2 className="text-3xl font-bold leading-tight text-primary md:text-4xl">
+                <h2 className="text-3xl font-bold leading-tight text-white md:text-4xl">
                   More Planning Guides
                 </h2>
               </div>
-              <p className="max-w-lg text-base leading-relaxed text-gray-600">
+              <p className="max-w-lg text-base leading-relaxed text-white/72">
                 Short, practical articles to help define scope, materials, and expectations before
                 installation begins.
               </p>
             </div>
 
-            <div className="grid border border-gray-200 border-t-accent bg-white md:grid-cols-2 xl:grid-cols-3">
+            <MobileCarousel label="Planning Guides" theme="dark">
+              {regularPosts.map((post) => (
+                <article
+                  key={post.slug}
+                  className="group flex min-h-[420px] flex-col overflow-hidden border border-gray-200 border-t-accent bg-white"
+                >
+                  <div className="relative min-h-40 overflow-hidden bg-gray-50">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,31,84,0)_0%,rgba(0,31,84,0.22)_100%)]" />
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-5">
+                    <div className="mb-5 flex justify-end">
+                      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400">
+                        {formatDate(post.date)}
+                      </span>
+                    </div>
+                    <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-400">
+                      {post.category}
+                    </p>
+                    <h3 className="mb-4 text-lg font-bold leading-tight text-primary">
+                      {post.title}
+                    </h3>
+                    <p className="flex-1 text-[13px] leading-relaxed text-gray-600">{post.excerpt}</p>
+                    <div className="mt-7 border-t border-gray-200 pt-5">
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-accent"
+                      >
+                        Read Guide
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </MobileCarousel>
+
+            <div className="hidden border border-gray-200 border-t-accent bg-white md:grid md:grid-cols-2 xl:grid-cols-3">
               {regularPosts.map((post, index) => (
                 <article
                   key={post.slug}
@@ -177,7 +220,7 @@ export default function Blog() {
 
       <CtaBanner
         heading="Planning a wallpaper project?"
-        subheading="Send the scope, dimensions, and material status. We will help define the next step."
+        subheading="Share your project type, dimensions, wallpaper details, and location. NOVACY will review the scope and define the next step."
         cta={homeExtras.ctaBanner.cta}
       />
     </div>

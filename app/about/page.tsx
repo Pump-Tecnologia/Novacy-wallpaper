@@ -2,14 +2,15 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
+import MobileCarousel from "@/components/MobileCarousel";
 import CtaBanner from "@/components/sections/CtaBanner";
 import InternalPageHero from "@/components/sections/InternalPageHero";
 import { aboutContent } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "About | NOVACY Wallpaper Installation NYC",
+  title: "About | NOVACY Wallpaper Installation NY & NJ",
   description:
-    "Nearly a decade of precision wallpaper installation across New York City and Northern New Jersey. Built from experience, driven by craftsmanship.",
+    "Nearly a decade of precision wallpaper installation across New York & New Jersey. Built from experience, driven by craftsmanship.",
 };
 
 export default function About() {
@@ -76,23 +77,43 @@ export default function About() {
 
       {/* 3. NOVA & LEGACY */}
       <AnimatedSection>
-        <section className="relative overflow-hidden bg-gray-50 py-14 md:py-16">
+        <section className="relative overflow-hidden bg-[#004198] py-14 text-white md:py-16">
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-[length:130%_auto] bg-center bg-no-repeat opacity-[0.2] [filter:brightness(0)_saturate(100%)_invert(84%)_sepia(13%)_saturate(525%)_hue-rotate(178deg)_brightness(98%)_contrast(92%)]"
-            style={{ backgroundImage: "url('/brand/background-pattern-thin.svg')" }}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/brand/background-pattern-blue.svg')" }}
           />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-8 max-w-2xl">
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-accent">
                 {nameBreakdown.sectionLabel}
               </p>
-              <h2 className="text-3xl font-bold leading-tight text-primary md:text-4xl">
+              <h2 className="text-3xl font-bold leading-tight text-white md:text-4xl">
                 What NOVACY Means
               </h2>
             </div>
 
-            <div className="grid border border-gray-200 border-t-accent bg-white md:grid-cols-2">
+            <MobileCarousel label="Name System" theme="dark">
+              <div className="h-full border border-gray-200 border-t-accent bg-white p-5">
+                <h3 className="mb-4 text-xl font-bold text-primary">
+                  {nameBreakdown.nova.title}
+                </h3>
+                <p className="text-[13px] leading-relaxed text-gray-600">
+                  {nameBreakdown.nova.desc}
+                </p>
+              </div>
+
+              <div className="h-full border border-gray-200 border-t-accent bg-white p-5">
+                <h3 className="mb-4 text-xl font-bold text-primary">
+                  {nameBreakdown.legacy.title}
+                </h3>
+                <p className="text-[13px] leading-relaxed text-gray-600">
+                  {nameBreakdown.legacy.desc}
+                </p>
+              </div>
+            </MobileCarousel>
+
+            <div className="hidden border border-gray-200 border-t-accent bg-white md:grid md:grid-cols-2">
               <div className="border-b border-gray-200 p-6 md:border-b-0 md:border-r md:p-8">
                 <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-accent">
                   01 / Renewal
@@ -118,7 +139,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden bg-accent p-6 text-white md:p-8">
+            <div className="relative overflow-hidden bg-[#004198] p-6 text-white md:p-8">
               <p className="relative max-w-4xl text-base font-medium leading-relaxed text-white/88">
                 &ldquo;{nameBreakdown.quote}&rdquo;
               </p>
@@ -144,7 +165,32 @@ export default function About() {
                 {differentiators.subheading}
               </p>
             </div>
-            <div className="grid border border-gray-200 border-t-accent bg-white md:grid-cols-2 xl:grid-cols-4">
+            <MobileCarousel label="NOVACY Standard">
+              {differentiators.items.map((item) => (
+                <div
+                  key={item.title}
+                  className="group relative min-h-[390px] overflow-hidden border border-gray-200 border-t-accent bg-white"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.imagePlaceholder}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,20,58,0.08)_0%,rgba(0,31,84,0.3)_34%,rgba(0,35,94,0.72)_70%,rgba(0,31,84,0.95)_100%)]" />
+                  <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[radial-gradient(circle_at_18%_100%,rgba(2,89,223,0.45),transparent_52%)]" />
+                  <div className="relative flex h-full min-h-[390px] flex-col justify-end p-6 text-white">
+                    <div className="bg-primary/32 p-4 backdrop-blur-[2px]">
+                      <h3 className="mb-3 text-lg font-bold leading-snug text-white">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-white/86">{item.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </MobileCarousel>
+
+            <div className="hidden border border-gray-200 border-t-accent bg-white md:grid md:grid-cols-2 xl:grid-cols-4">
               {differentiators.items.map((item, index) => (
                 <div
                   key={item.title}
@@ -183,26 +229,52 @@ export default function About() {
 
       {/* 5. MISSION, VISION, VALUES */}
       <AnimatedSection>
-        <section className="relative overflow-hidden bg-primary py-14 text-white md:py-16">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-[length:130%_auto] bg-center bg-no-repeat opacity-[0.22] [filter:brightness(0)_saturate(100%)_invert(24%)_sepia(72%)_saturate(1725%)_hue-rotate(202deg)_brightness(88%)_contrast(93%)]"
-            style={{ backgroundImage: "url('/brand/background-pattern-thin.svg')" }}
-          />
-          <div aria-hidden="true" className="absolute inset-0 bg-primary/48" />
-
+        <section className="relative overflow-hidden py-14 md:py-16">
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-10 max-w-2xl">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-white/50">
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-accent">
                 Visual Identity
               </p>
-              <h2 className="mb-5 text-3xl font-bold leading-tight md:text-4xl">
+              <h2 className="mb-5 text-3xl font-bold leading-tight text-primary md:text-4xl">
                 {nyc.heading}
               </h2>
-              <p className="text-base leading-relaxed text-white/72">{nyc.body}</p>
+              <p className="text-base leading-relaxed text-gray-600">{nyc.body}</p>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-3">
+            <MobileCarousel label="Identity Pillars">
+              <div className="h-full border border-gray-200 border-t-accent bg-[linear-gradient(135deg,#f8fafc_0%,#eef4ff_100%)] p-6 text-primary">
+                <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                  01
+                </p>
+                <h3 className="mb-4 text-xl font-bold text-primary">{mvv.mission.title}</h3>
+                <p className="text-base leading-relaxed text-gray-600">{mvv.mission.desc}</p>
+              </div>
+
+              <div className="h-full border border-gray-200 border-t-accent bg-[linear-gradient(135deg,#f8fafc_0%,#eef4ff_100%)] p-6 text-primary">
+                <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                  02
+                </p>
+                <h3 className="mb-4 text-xl font-bold text-primary">{mvv.vision.title}</h3>
+                <p className="text-base leading-relaxed text-gray-600">{mvv.vision.desc}</p>
+              </div>
+
+              <div className="h-full border border-gray-200 border-t-accent bg-[linear-gradient(135deg,#f8fafc_0%,#eef4ff_100%)] p-6 text-primary">
+                <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                  03
+                </p>
+                <h3 className="mb-4 text-xl font-bold text-primary">{mvv.values.title}</h3>
+                <ul className="space-y-3 text-base text-gray-600">
+                  {mvv.values.items.map((item) => (
+                    <li key={item} className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 flex-shrink-0 bg-accent" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </MobileCarousel>
+
+            <div className="hidden gap-4 md:grid md:grid-cols-3">
               <div className="border-t-2 border-accent bg-[linear-gradient(135deg,#f8fafc_0%,#eef4ff_100%)] p-6 text-primary md:p-8">
                 <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-accent">
                   01
@@ -239,7 +311,7 @@ export default function About() {
       {/* 6. CTA */}
       <CtaBanner
         heading={cta.heading}
-        subheading="Get a free consultation — we serve New York City, Long Island, and Northern New Jersey."
+        subheading="Serving residential and commercial clients across New York and New Jersey."
         cta={{ label: cta.label, href: cta.href }}
       />
     </div>

@@ -17,8 +17,8 @@ const chakraPetch = Chakra_Petch({
 });
 
 export const metadata: Metadata = {
-  title: "Novacy | Premium Wallpaper Installation in NYC",
-  description: "Premium wallpaper installation serving New York City, Long Island, and Northern New Jersey. Precision, craftsmanship, and lasting results.",
+  title: "Novacy | Premium Wallpaper Installation in NY & NJ",
+  description: "Premium wallpaper installation serving New York & New Jersey. Precision, craftsmanship, and lasting results.",
   icons: {
     icon: "/favicon.png?v=2",
     shortcut: "/favicon.png?v=2",

@@ -33,9 +33,6 @@ const requiredFields: Array<keyof ContactFields> = [
   "name",
   "email",
   "phone",
-  "serviceType",
-  "location",
-  "message",
 ];
 
 function clean(value: unknown) {
@@ -56,14 +53,14 @@ function formatRows(fields: ContactFields) {
     ["Name", fields.name],
     ["Email", fields.email],
     ["Phone", fields.phone],
-    ["Service", fields.serviceType],
-    ["Location", fields.location],
+    ["Service", fields.serviceType || "Client did not provide this detail."],
+    ["Location", fields.location || "Client did not provide this detail."],
     ["Dimensions", fields.dimensions || "Client did not provide this detail."],
     ["Material Status", fields.materialStatus || "Client did not provide this detail."],
     ["Material / Roll Details", fields.materialDetails || "Client did not provide this detail."],
     ["Timeline", fields.timeline || "Client did not provide this detail."],
     ["Photo Link", fields.photoLink || "Client did not provide this detail."],
-    ["Message", fields.message],
+    ["Message", fields.message || "Client did not provide this detail."],
   ];
 
   return rows
@@ -104,8 +101,8 @@ function buildText(fields: ContactFields) {
     `Name: ${fields.name}`,
     `Email: ${fields.email}`,
     `Phone: ${fields.phone}`,
-    `Service: ${fields.serviceType}`,
-    `Location: ${fields.location}`,
+    `Service: ${fields.serviceType || "Client did not provide this detail."}`,
+    `Location: ${fields.location || "Client did not provide this detail."}`,
     `Dimensions: ${fields.dimensions || "Client did not provide this detail."}`,
     `Material Status: ${fields.materialStatus || "Client did not provide this detail."}`,
     `Material / Roll Details: ${fields.materialDetails || "Client did not provide this detail."}`,
@@ -113,7 +110,7 @@ function buildText(fields: ContactFields) {
     `Photo Link: ${fields.photoLink || "Client did not provide this detail."}`,
     "",
     "Message:",
-    fields.message,
+    fields.message || "Client did not provide this detail.",
   ].join("\n");
 }
 
@@ -166,7 +163,7 @@ export async function POST(request: NextRequest) {
         from,
         to,
         reply_to: fields.email,
-        subject: `NOVACY project request — ${fields.serviceType}`,
+        subject: `NOVACY project request — ${fields.serviceType || "Project consultation"}`,
         html: buildEmailHtml(fields),
         text: buildText(fields),
       }),

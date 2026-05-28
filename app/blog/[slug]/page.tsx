@@ -112,11 +112,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </AnimatedSection>
 
       <AnimatedSection>
-        <section className="relative overflow-hidden bg-gray-50 py-14 md:py-16">
+        <section className="relative overflow-hidden bg-[#004198] py-14 md:py-16">
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-[length:125%_auto] bg-center bg-no-repeat opacity-[0.12] [filter:brightness(0)_saturate(100%)_invert(72%)_sepia(46%)_saturate(417%)_hue-rotate(183deg)_brightness(103%)_contrast(91%)]"
-            style={{ backgroundImage: "url('/brand/background-pattern-thin.svg')" }}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/brand/background-pattern-blue.svg')" }}
           />
 
           <div className="relative mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.42fr] lg:px-8">
@@ -169,7 +169,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       <CtaBanner
         heading="Need help planning the wall?"
-        subheading="Send the scope, dimensions, material status, and project location. We will help define the next step."
+        subheading="Share your project type, dimensions, wallpaper details, and location. NOVACY will review the scope and define the next step."
         cta={homeExtras.ctaBanner.cta}
       />
     </div>

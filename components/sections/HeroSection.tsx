@@ -52,7 +52,7 @@ export default function HeroSection({
 
   return (
     <section
-      className={`relative min-h-[calc(100vh-5rem)] flex items-end overflow-hidden ${
+      className={`relative flex min-h-[calc(100svh-4rem)] items-end overflow-hidden md:min-h-[calc(100vh-5rem)] ${
         isDark ? "bg-primary" : "bg-gray-50"
       }`}
     >
@@ -97,7 +97,7 @@ export default function HeroSection({
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute top-[40%] flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/80 bg-primary/80 text-white shadow-2xl backdrop-blur-sm md:top-[44%]"
+            className="pointer-events-none absolute top-[34%] flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/80 bg-primary/80 text-white shadow-2xl backdrop-blur-sm md:top-[44%]"
             style={{ left: `${reveal}%` }}
           >
             <span className="h-3 w-3 rotate-45 border-b-2 border-l-2 border-white" />
@@ -118,20 +118,20 @@ export default function HeroSection({
             max="88"
             value={reveal}
             onChange={(event) => setReveal(Number(event.target.value))}
-            className="absolute inset-x-0 top-[40%] z-20 h-16 -translate-y-1/2 cursor-ew-resize opacity-0 md:top-[44%]"
+            className="absolute inset-x-0 top-[34%] z-20 h-16 -translate-y-1/2 cursor-ew-resize opacity-0 md:top-[44%]"
           />
         </div>
       )}
 
       <div
-        className={`relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-20 ${
+        className={`relative z-10 w-full max-w-7xl mx-auto px-4 pb-20 pt-48 sm:px-6 md:pb-20 lg:px-8 ${
           isDark ? "text-white" : "text-primary"
         }`}
       >
         {/* Linha 1 — headline principal */}
         <div className="overflow-hidden mb-1">
           <motion.span
-            className="block max-w-3xl text-5xl md:text-6xl xl:text-7xl font-bold leading-[0.98]"
+            className="block max-w-[21rem] text-[3.35rem] font-bold leading-[1.02] sm:max-w-3xl sm:text-5xl md:text-6xl md:leading-[0.98] xl:text-7xl"
             style={titleShadow}
             variants={heroLine(0)}
             initial="hidden"
@@ -144,7 +144,7 @@ export default function HeroSection({
         {/* Linha 2 — accent + suffix */}
         <div className="overflow-hidden mb-8">
           <motion.span
-            className="block max-w-4xl text-5xl md:text-6xl xl:text-7xl font-bold leading-[0.98]"
+            className="block max-w-[21rem] text-[3.35rem] font-bold leading-[1.02] sm:max-w-4xl sm:text-5xl md:text-6xl md:leading-[0.98] xl:text-7xl"
             style={titleShadow}
             variants={heroLine(0.15)}
             initial="hidden"
@@ -157,17 +157,22 @@ export default function HeroSection({
 
         {/* CTAs */}
         <motion.div
-          className="flex flex-wrap gap-4"
+          className="grid max-w-md grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-4"
           variants={heroFade(0.38)}
           initial="hidden"
           animate="visible"
         >
-          <Button label={ctaPrimary.label} href={ctaPrimary.href} variant="accent" />
+          <Button
+            label={ctaPrimary.label}
+            href={ctaPrimary.href}
+            variant="accent"
+            className="flex min-h-12 items-center justify-center px-4 py-3 text-center text-[11px] tracking-[0.18em] sm:w-auto sm:px-8"
+          />
           {ctaSecondary && (
             <Button
               label={ctaSecondary.label}
               href={ctaSecondary.href}
-              className="!bg-white !text-primary hover:!bg-gray-100"
+              className="flex min-h-12 items-center justify-center border border-white/80 !bg-white/92 px-4 py-3 text-center text-[11px] tracking-[0.18em] !text-primary backdrop-blur-sm hover:!bg-white sm:w-auto sm:px-8"
             />
           )}
         </motion.div>

@@ -16,11 +16,16 @@ export default function InternalPageHero({
   backgroundPosition = "center",
 }: InternalPageHeroProps) {
   return (
-    <section className="relative min-h-[420px] overflow-hidden bg-primary text-white md:min-h-[520px]">
+    <section className="relative min-h-[420px] overflow-hidden bg-[#004198] text-white md:min-h-[520px]">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/brand/background-pattern-blue.svg')" }}
+      />
       {backgroundImage && (
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-cover opacity-70"
+          className="absolute inset-0 bg-cover opacity-40"
           style={{
             backgroundImage: `url('${backgroundImage}')`,
             backgroundPosition,
@@ -29,16 +34,11 @@ export default function InternalPageHero({
       )}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-cover bg-center opacity-[0.08]"
-        style={{ backgroundImage: "url('/brand/background-pattern-thin.svg')" }}
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,65,152,0.98)_0%,rgba(0,65,152,0.88)_42%,rgba(0,65,152,0.58)_70%,rgba(0,65,152,0.38)_100%)]"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,46,125,0.98)_0%,rgba(0,46,125,0.88)_42%,rgba(0,46,125,0.56)_70%,rgba(0,46,125,0.36)_100%)]"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,46,125,0.28)_0%,rgba(0,46,125,0)_42%,rgba(0,46,125,0.26)_100%)]"
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,65,152,0.24)_0%,rgba(0,65,152,0)_42%,rgba(0,65,152,0.24)_100%)]"
       />
 
       <div className="relative mx-auto flex min-h-[420px] max-w-7xl items-center px-4 py-20 sm:px-6 md:min-h-[520px] lg:px-8">
