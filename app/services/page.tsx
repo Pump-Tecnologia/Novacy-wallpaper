@@ -465,7 +465,7 @@ export default function Services() {
         <section className="relative overflow-hidden bg-[#002E7D] text-white">
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-cover bg-center [background-attachment:fixed]"
+            className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: "url('/brand/background-pattern-footer.svg')" }}
           />
 

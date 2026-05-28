@@ -1,7 +1,6 @@
 "use client";
 
 import { Children, useCallback, useEffect, useRef, useState } from "react";
-import type { MouseEvent, PointerEvent } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 type MobileCarouselProps = {
@@ -24,20 +23,12 @@ export default function MobileCarousel({
   slideClassName,
 }: MobileCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
-  const dragStateRef = useRef({
-    isDown: false,
-    hasMoved: false,
-    startX: 0,
-    scrollLeft: 0,
-    pointerId: 0,
-  });
-  const didDragRef = useRef(false);
+  const rafRef = useRef<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
   const slides = Children.toArray(children);
   const isDark = theme === "dark";
 
-  const updateActiveIndex = useCallback(() => {
+  const computeActiveIndex = useCallback(() => {
     const track = trackRef.current;
     if (!track) return;
 
@@ -52,8 +43,16 @@ export default function MobileCarousel({
       { index: 0, distance: Number.POSITIVE_INFINITY },
     ).index;
 
-    setActiveIndex(nextIndex);
+    setActiveIndex((prev) => (prev === nextIndex ? prev : nextIndex));
   }, []);
+
+  const handleScroll = useCallback(() => {
+    if (rafRef.current !== null) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null;
+      computeActiveIndex();
+    });
+  }, [computeActiveIndex]);
 
   const goToSlide = (index: number) => {
     const track = trackRef.current;
@@ -66,58 +65,15 @@ export default function MobileCarousel({
     });
   };
 
-  const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    dragStateRef.current = {
-      isDown: true,
-      hasMoved: false,
-      startX: event.clientX,
-      scrollLeft: track.scrollLeft,
-      pointerId: event.pointerId,
-    };
-    setIsDragging(true);
-    track.setPointerCapture(event.pointerId);
-  };
-
-  const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
-    const track = trackRef.current;
-    const dragState = dragStateRef.current;
-    if (!track || !dragState.isDown) return;
-
-    const delta = event.clientX - dragState.startX;
-    if (Math.abs(delta) > 3) dragState.hasMoved = true;
-    track.scrollLeft = dragState.scrollLeft - delta;
-  };
-
-  const handlePointerUp = (event: PointerEvent<HTMLDivElement>) => {
-    const track = trackRef.current;
-    const dragState = dragStateRef.current;
-    if (!track || !dragState.isDown) return;
-
-    dragState.isDown = false;
-    setIsDragging(false);
-    if (track.hasPointerCapture(dragState.pointerId)) {
-      track.releasePointerCapture(dragState.pointerId);
-    }
-    if (dragState.hasMoved) {
-      didDragRef.current = true;
-      event.preventDefault();
-      updateActiveIndex();
-    }
-  };
-
-  const handleClickCapture = (event: MouseEvent<HTMLDivElement>) => {
-    if (!didDragRef.current) return;
-    event.preventDefault();
-    event.stopPropagation();
-    didDragRef.current = false;
-  };
+  useEffect(() => {
+    computeActiveIndex();
+  }, [slides.length, computeActiveIndex]);
 
   useEffect(() => {
-    updateActiveIndex();
-  }, [slides.length, updateActiveIndex]);
+    return () => {
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
 
   if (!slides.length) return null;
 
@@ -177,16 +133,8 @@ export default function MobileCarousel({
       <div className="relative overflow-hidden">
         <div
           ref={trackRef}
-          onScroll={updateActiveIndex}
-          onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerCancel={handlePointerUp}
-          onPointerUp={handlePointerUp}
-          onClickCapture={handleClickCapture}
-          className={cn(
-            "flex cursor-grab touch-pan-x gap-4 overflow-x-auto overscroll-x-contain scroll-smooth pb-5 active:cursor-grabbing [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
-            isDragging ? "snap-none select-none" : "snap-x snap-mandatory",
-          )}
+          onScroll={handleScroll}
+          className="flex touch-pan-x snap-x snap-proximity gap-4 overflow-x-auto overscroll-x-contain pb-5 [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden"
         >
           {slides.map((slide, index) => (
             <div
