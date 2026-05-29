@@ -24,6 +24,28 @@ const requiredWhatsappFields = [
   "phone",
 ] as const;
 
+interface FieldLabelProps {
+  label: string;
+  required?: boolean;
+}
+
+function FieldLabel({ label, required = false }: FieldLabelProps) {
+  return (
+    <label className="mb-2 flex items-baseline gap-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+      <span>{label}</span>
+      {required ? (
+        <span className="text-red-600" aria-hidden="true">
+          *
+        </span>
+      ) : (
+        <span className="text-[10px] font-medium tracking-[0.16em] text-gray-400">
+          (Optional)
+        </span>
+      )}
+    </label>
+  );
+}
+
 function getFormValues(form: HTMLFormElement) {
   const formData = new FormData(form);
 
@@ -126,10 +148,12 @@ export default function ContactForm({
     <form onSubmit={handleSubmit} className="grid min-w-0 gap-5 md:grid-cols-2">
       <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" />
 
+      <p className="md:col-span-2 text-[11px] leading-relaxed text-gray-500">
+        Fields marked with <span className="font-bold text-red-600">*</span> are required. All other fields are optional — share what you can and we will follow up on the rest.
+      </p>
+
       <div className="flex flex-col">
-        <label className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-          Full Name
-        </label>
+        <FieldLabel label="Full Name" required />
         <input
           required
           name="name"
@@ -139,9 +163,7 @@ export default function ContactForm({
         />
       </div>
       <div className="flex flex-col">
-        <label className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-          Email Address
-        </label>
+        <FieldLabel label="Email Address" required />
         <input
           required
           name="email"
@@ -151,9 +173,7 @@ export default function ContactForm({
         />
       </div>
       <div className="flex flex-col">
-        <label className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-          Phone
-        </label>
+        <FieldLabel label="Phone" required />
         <input
           required
           name="phone"
@@ -163,9 +183,7 @@ export default function ContactForm({
         />
       </div>
       <div className="flex flex-col">
-        <label className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-          Service Type
-        </label>
+        <FieldLabel label="Service Type" />
         <select
           name="serviceType"
           defaultValue={initialService}
@@ -178,9 +196,7 @@ export default function ContactForm({
         </select>
       </div>
       <div className="flex flex-col md:col-span-2">
-        <label className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-          Project Location
-        </label>
+        <FieldLabel label="Project Location" />
         <input
           name="location"
           type="text"
@@ -189,9 +205,7 @@ export default function ContactForm({
         />
       </div>
       <div className="flex flex-col">
-        <label className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-          Approx. Dimensions
-        </label>
+        <FieldLabel label="Approx. Dimensions" />
         <input
           name="dimensions"
           type="text"
@@ -200,9 +214,7 @@ export default function ContactForm({
         />
       </div>
       <div className="flex flex-col">
-        <label className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-          Material Status
-        </label>
+        <FieldLabel label="Material Status" />
         <select
           name="materialStatus"
           className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors focus:border-accent"
@@ -213,9 +225,7 @@ export default function ContactForm({
         </select>
       </div>
       <div className="flex flex-col md:col-span-2">
-        <label className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-          Wallpaper Type / Roll Info
-        </label>
+        <FieldLabel label="Wallpaper Type / Roll Info" />
         <input
           name="materialDetails"
           type="text"
@@ -224,9 +234,7 @@ export default function ContactForm({
         />
       </div>
       <div className="flex flex-col">
-        <label className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-          Timeline
-        </label>
+        <FieldLabel label="Timeline" />
         <input
           name="timeline"
           type="text"
@@ -235,9 +243,7 @@ export default function ContactForm({
         />
       </div>
       <div className="flex flex-col">
-        <label className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-          Photo Link
-        </label>
+        <FieldLabel label="Photo Link" />
         <input
           name="photoLink"
           type="url"
@@ -246,9 +252,7 @@ export default function ContactForm({
         />
       </div>
       <div className="flex flex-col md:col-span-2">
-        <label className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-          Message
-        </label>
+        <FieldLabel label="Message" />
         <textarea
           name="message"
           rows={5}
