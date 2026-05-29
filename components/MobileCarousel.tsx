@@ -134,7 +134,7 @@ export default function MobileCarousel({
         <div
           ref={trackRef}
           onScroll={handleScroll}
-          className="flex touch-pan-x snap-x snap-proximity gap-4 overflow-x-auto overscroll-x-contain pb-5 [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden"
+          className="flex snap-x snap-proximity gap-4 overflow-x-auto overscroll-x-contain pb-5 [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden"
         >
           {slides.map((slide, index) => (
             <div
