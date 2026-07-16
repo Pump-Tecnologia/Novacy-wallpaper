@@ -29,7 +29,7 @@ export default function ProcessSteps({ heading, subheading, steps }: ProcessStep
           {steps.map((step) => (
             <div
               key={step.number}
-              className="min-h-[200px] border border-gray-200 border-t-accent bg-white p-6"
+              className="border border-gray-200 border-t-accent bg-white p-6"
             >
               <h3 className="mb-2 text-[15px] font-bold text-primary">{step.title}</h3>
               <p className="text-[13px] leading-relaxed text-gray-600">{step.desc}</p>
