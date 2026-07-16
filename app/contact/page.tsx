@@ -4,6 +4,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import ContactRequestSection from "@/components/ContactRequestSection";
 import MobileCarousel from "@/components/MobileCarousel";
 import InternalPageHero from "@/components/sections/InternalPageHero";
+import LightboxProvider from "@/components/ui/LightboxProvider";
 import { contactContent, servicesContent } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -37,6 +38,7 @@ export default async function Contact({ searchParams }: ContactPageProps) {
   } = contactContent;
 
   return (
+    <LightboxProvider>
     <div className="bg-white">
       <InternalPageHero
         eyebrow={hero.eyebrow}
@@ -138,5 +140,6 @@ export default async function Contact({ searchParams }: ContactPageProps) {
         </section>
       </AnimatedSection>
     </div>
+    </LightboxProvider>
   );
 }

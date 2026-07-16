@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -15,6 +14,8 @@ import AnimatedSection from "@/components/AnimatedSection";
 import MobileCarousel from "@/components/MobileCarousel";
 import CtaBanner from "@/components/sections/CtaBanner";
 import InternalPageHero from "@/components/sections/InternalPageHero";
+import LightboxProvider from "@/components/ui/LightboxProvider";
+import ZoomableImage from "@/components/ui/ZoomableImage";
 import { servicesContent } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function Services() {
   const { hero, intro, services, deliverables, serviceAreas, reservation, cta } = servicesContent;
 
   return (
+    <LightboxProvider>
     <div className="bg-white">
       <InternalPageHero
         eyebrow={hero.eyebrow}
@@ -152,12 +154,12 @@ export default function Services() {
                       style={{ backgroundImage: "url('/brand/background-pattern-card-gray.svg')" }}
                     />
                     <div className="relative min-h-52 overflow-hidden bg-gray-100">
-                      <img
+                      <ZoomableImage
                         src={service.image}
                         alt={service.imagePlaceholder}
-                        className="absolute inset-0 h-full w-full object-cover"
+                        className="absolute inset-0"
                       />
-                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,31,84,0)_0%,rgba(0,31,84,0.34)_100%)]" />
+                      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,31,84,0)_0%,rgba(0,31,84,0.34)_100%)]" />
                     </div>
 
                     <div className="relative z-10 overflow-hidden p-6">
@@ -244,12 +246,13 @@ export default function Services() {
                       isReversed ? "lg:order-2" : "lg:order-1"
                     }`}
                   >
-                    <img
+                    <ZoomableImage
                       src={service.image}
                       alt={service.imagePlaceholder}
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                      className="absolute inset-0"
+                      imgClassName="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                     />
-                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[linear-gradient(180deg,rgba(0,46,125,0)_0%,rgba(0,46,125,0.26)_100%)]" />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-[linear-gradient(180deg,rgba(0,46,125,0)_0%,rgba(0,46,125,0.26)_100%)]" />
                   </div>
 
                   <div
@@ -536,5 +539,6 @@ export default function Services() {
         </section>
       </AnimatedSection>
     </div>
+    </LightboxProvider>
   );
 }

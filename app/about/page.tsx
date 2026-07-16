@@ -1,10 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
-import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
 import MobileCarousel from "@/components/MobileCarousel";
 import CtaBanner from "@/components/sections/CtaBanner";
 import InternalPageHero from "@/components/sections/InternalPageHero";
+import LightboxProvider from "@/components/ui/LightboxProvider";
+import ZoomableImage from "@/components/ui/ZoomableImage";
 import { aboutContent } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -17,6 +17,7 @@ export default function About() {
   const { hero, story, nameBreakdown, differentiators, nyc, mvv, cta } = aboutContent;
 
   return (
+    <LightboxProvider>
     <div className="bg-white">
       {/* 1. HERO */}
       <InternalPageHero
@@ -35,12 +36,10 @@ export default function About() {
             <div>
               <div className="relative aspect-[5/4] overflow-hidden border border-gray-200 bg-gray-50 lg:aspect-[4/3]">
                 {story.image ? (
-                  <Image
+                  <ZoomableImage
                     src={story.image}
                     alt={story.imagePlaceholder}
-                    fill
-                    sizes="(min-width: 1024px) 45vw, 100vw"
-                    className="object-cover"
+                    className="absolute inset-0"
                   />
                 ) : (
                   <div className="flex h-full items-center justify-center bg-[linear-gradient(135deg,#f8fafc_0%,#eef4ff_100%)] p-8 text-center">
@@ -171,14 +170,14 @@ export default function About() {
                   key={item.title}
                   className="group relative min-h-[390px] overflow-hidden border border-gray-200 border-t-accent bg-white"
                 >
-                  <img
+                  <ZoomableImage
                     src={item.image}
                     alt={item.imagePlaceholder}
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className="absolute inset-0"
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,20,58,0.08)_0%,rgba(0,31,84,0.3)_34%,rgba(0,35,94,0.72)_70%,rgba(0,31,84,0.95)_100%)]" />
-                  <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[radial-gradient(circle_at_18%_100%,rgba(2,89,223,0.45),transparent_52%)]" />
-                  <div className="relative flex h-full min-h-[390px] flex-col justify-end p-6 text-white">
+                  <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,20,58,0.08)_0%,rgba(0,31,84,0.3)_34%,rgba(0,35,94,0.72)_70%,rgba(0,31,84,0.95)_100%)]" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-[radial-gradient(circle_at_18%_100%,rgba(2,89,223,0.45),transparent_52%)]" />
+                  <div className="pointer-events-none relative flex h-full min-h-[390px] flex-col justify-end p-6 text-white">
                     <div className="bg-primary/32 p-4 backdrop-blur-[2px]">
                       <h3 className="mb-3 text-lg font-bold leading-snug text-white">
                         {item.title}
@@ -200,14 +199,15 @@ export default function About() {
                     index < differentiators.items.length - 1 ? "xl:border-r xl:border-gray-200" : ""
                   }`}
                 >
-                  <img
+                  <ZoomableImage
                     src={item.image}
                     alt={item.imagePlaceholder}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="absolute inset-0"
+                    imgClassName="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,20,58,0.06)_0%,rgba(0,31,84,0.2)_34%,rgba(0,35,94,0.66)_70%,rgba(0,31,84,0.92)_100%)] transition-opacity duration-300 group-hover:opacity-95" />
-                  <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[radial-gradient(circle_at_18%_100%,rgba(2,89,223,0.42),transparent_52%)]" />
-                  <div className="relative flex h-full min-h-[360px] flex-col justify-end p-6 text-white">
+                  <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,20,58,0.06)_0%,rgba(0,31,84,0.2)_34%,rgba(0,35,94,0.66)_70%,rgba(0,31,84,0.92)_100%)] transition-opacity duration-300 group-hover:opacity-95" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-[radial-gradient(circle_at_18%_100%,rgba(2,89,223,0.42),transparent_52%)]" />
+                  <div className="pointer-events-none relative flex h-full min-h-[360px] flex-col justify-end p-6 text-white">
                     <div className="max-w-[18rem] rounded-sm bg-primary/18 p-4 backdrop-blur-[2px] transition-all duration-300 group-hover:-translate-y-3 group-hover:bg-primary/34">
                       <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#7eb0ff] drop-shadow">
                         {String(index + 1).padStart(2, "0")}
@@ -315,5 +315,6 @@ export default function About() {
         cta={{ label: cta.label, href: cta.href }}
       />
     </div>
+    </LightboxProvider>
   );
 }

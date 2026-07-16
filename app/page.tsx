@@ -5,6 +5,7 @@ import ServicesPreview   from "@/components/sections/ServicesPreview";
 import BrandEssenceSection from "@/components/sections/BrandEssenceSection";
 import GalleryPreview    from "@/components/sections/GalleryPreview";
 import CtaBanner         from "@/components/sections/CtaBanner";
+import LightboxProvider  from "@/components/ui/LightboxProvider";
 
 export const metadata: Metadata = {
   title: "NOVACY | Premium Wallpaper Installation in NY & NJ",
@@ -17,6 +18,7 @@ export default function Home() {
   const { process, servicesPreview, gallery, ctaBanner } = homeExtras;
 
   return (
+    <LightboxProvider>
     <div>
       {/* 1 — HERO */}
       <HeroSection
@@ -73,5 +75,6 @@ export default function Home() {
         cta={ctaBanner.cta}
       />
     </div>
+    </LightboxProvider>
   );
 }

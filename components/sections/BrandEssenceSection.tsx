@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import MobileCarousel from "@/components/MobileCarousel";
 import Button from "@/components/ui/Button";
+import ZoomableImage from "@/components/ui/ZoomableImage";
 import { fadeUp } from "@/lib/animations";
 
 interface BrandEssenceSectionProps {
@@ -68,14 +68,12 @@ export default function BrandEssenceSection({
           <div className="relative min-h-[280px] overflow-hidden border border-white/12 bg-white/[0.06] lg:min-h-[360px]">
             {image ? (
               <>
-                <Image
+                <ZoomableImage
                   src={image}
                   alt={imagePlaceholder ?? "Wallpaper installation detail"}
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
+                  className="absolute inset-0"
                 />
-                <div className="absolute inset-0 bg-primary/20" />
+                <div className="pointer-events-none absolute inset-0 bg-primary/20" />
               </>
             ) : (
               <div className="flex h-full items-center justify-center p-8 text-center text-[11px] font-bold uppercase tracking-[0.22em] text-white/45">
@@ -96,9 +94,9 @@ export default function BrandEssenceSection({
               {process.map((step) => (
                 <div
                   key={step.number}
-                  className="relative min-h-[190px] border border-gray-200 border-t-accent bg-white p-6"
+                  className="border border-gray-200 border-t-accent bg-white p-6"
                 >
-                  <div className="relative flex h-full flex-col">
+                  <div className="relative flex flex-col">
                     <h3 className="text-[13px] font-bold uppercase tracking-[0.12em] text-primary">
                       {step.title}
                     </h3>

@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BookOpen, CalendarDays } from "lucide-react";
@@ -6,6 +5,8 @@ import AnimatedSection from "@/components/AnimatedSection";
 import MobileCarousel from "@/components/MobileCarousel";
 import CtaBanner from "@/components/sections/CtaBanner";
 import InternalPageHero from "@/components/sections/InternalPageHero";
+import LightboxProvider from "@/components/ui/LightboxProvider";
+import ZoomableImage from "@/components/ui/ZoomableImage";
 import { blogContent, homeExtras } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default function Blog() {
   const [featuredPost, ...regularPosts] = posts;
 
   return (
+    <LightboxProvider>
     <div className="bg-white">
       <InternalPageHero
         eyebrow={hero.eyebrow}
@@ -54,12 +56,13 @@ export default function Blog() {
 
             <article className="grid overflow-hidden border border-gray-200 border-t-accent bg-white lg:grid-cols-[0.95fr_1.05fr]">
               <div className="relative min-h-[320px] overflow-hidden bg-gray-50">
-                <img
+                <ZoomableImage
                   src={featuredPost.image}
                   alt={featuredPost.title}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                  className="absolute inset-0"
+                  imgClassName="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,31,84,0.02)_0%,rgba(0,31,84,0.18)_60%,rgba(0,31,84,0.42)_100%)]" />
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,31,84,0.02)_0%,rgba(0,31,84,0.18)_60%,rgba(0,31,84,0.42)_100%)]" />
               </div>
 
               <div className="flex flex-col justify-between p-6 md:p-8 lg:p-10">
@@ -131,12 +134,12 @@ export default function Blog() {
                   className="group flex min-h-[420px] flex-col overflow-hidden border border-gray-200 border-t-accent bg-white"
                 >
                   <div className="relative min-h-40 overflow-hidden bg-gray-50">
-                    <img
+                    <ZoomableImage
                       src={post.image}
                       alt={post.title}
-                      className="absolute inset-0 h-full w-full object-cover"
+                      className="absolute inset-0"
                     />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,31,84,0)_0%,rgba(0,31,84,0.22)_100%)]" />
+                    <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,31,84,0)_0%,rgba(0,31,84,0.22)_100%)]" />
                   </div>
 
                   <div className="flex flex-1 flex-col p-5">
@@ -177,12 +180,13 @@ export default function Blog() {
                   } ${index === 2 ? "md:border-r md:border-gray-200" : ""}`}
                 >
                   <div className="relative min-h-40 overflow-hidden bg-gray-50">
-                    <img
+                    <ZoomableImage
                       src={post.image}
                       alt={post.title}
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="absolute inset-0"
+                      imgClassName="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,31,84,0)_0%,rgba(0,31,84,0.22)_100%)]" />
+                    <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,31,84,0)_0%,rgba(0,31,84,0.22)_100%)]" />
                   </div>
 
                   <div className="flex flex-1 flex-col p-6 md:p-7">
@@ -224,5 +228,6 @@ export default function Blog() {
         cta={homeExtras.ctaBanner.cta}
       />
     </div>
+    </LightboxProvider>
   );
 }

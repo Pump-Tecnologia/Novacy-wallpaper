@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useMemo, useState } from "react";
@@ -6,6 +5,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import ContactForm from "@/components/ContactForm";
 import MobileCarousel from "@/components/MobileCarousel";
+import ZoomableImage from "@/components/ui/ZoomableImage";
 
 type ServiceItem = {
   title: string;
@@ -95,13 +95,14 @@ export default function ContactRequestSection({
 
           <aside className="min-w-0 space-y-5">
             <div className="relative min-h-[320px] overflow-hidden border border-gray-200 bg-gray-50">
-              <img
+              <ZoomableImage
                 key={formImage}
                 src={formImage}
                 alt={formImagePlaceholder}
-                className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
+                className="absolute inset-0"
+                imgClassName="h-full w-full object-cover transition-opacity duration-300"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,31,84,0.04)_0%,rgba(0,31,84,0.22)_58%,rgba(0,31,84,0.62)_100%)]" />
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,31,84,0.04)_0%,rgba(0,31,84,0.22)_58%,rgba(0,31,84,0.62)_100%)]" />
             </div>
 
             <MobileCarousel label="Direct Contact">

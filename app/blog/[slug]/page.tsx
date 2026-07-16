@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -6,6 +5,8 @@ import { ArrowLeft, CalendarDays, Check, Clock } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import CtaBanner from "@/components/sections/CtaBanner";
 import InternalPageHero from "@/components/sections/InternalPageHero";
+import LightboxProvider from "@/components/ui/LightboxProvider";
+import ZoomableImage from "@/components/ui/ZoomableImage";
 import { blogArticles } from "@/lib/blogArticles";
 import { blogContent, homeExtras } from "@/lib/content";
 
@@ -55,6 +56,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
+    <LightboxProvider>
     <div className="bg-white">
       <InternalPageHero
         eyebrow={post.category}
@@ -89,12 +91,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             <div className="grid overflow-hidden border border-gray-200 border-t-accent bg-white lg:grid-cols-[0.9fr_1.1fr]">
               <div className="relative min-h-[320px] overflow-hidden bg-gray-50">
-                <img
+                <ZoomableImage
                   src={post.image}
                   alt={article.imagePlaceholder}
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="absolute inset-0"
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,31,84,0.02)_0%,rgba(0,31,84,0.18)_58%,rgba(0,31,84,0.42)_100%)]" />
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,31,84,0.02)_0%,rgba(0,31,84,0.18)_58%,rgba(0,31,84,0.42)_100%)]" />
               </div>
 
               <div className="flex flex-col justify-center p-6 md:p-8 lg:p-10">
@@ -173,5 +175,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         cta={homeExtras.ctaBanner.cta}
       />
     </div>
+    </LightboxProvider>
   );
 }
