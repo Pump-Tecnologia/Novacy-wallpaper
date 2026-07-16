@@ -9,6 +9,8 @@ type MobileCarouselProps = {
   theme?: "light" | "dark";
   className?: string;
   slideClassName?: string;
+  /** When false, the carousel renders on all breakpoints instead of mobile only. */
+  mobileOnly?: boolean;
 };
 
 function cn(...classes: Array<string | false | undefined>) {
@@ -21,6 +23,7 @@ export default function MobileCarousel({
   theme = "light",
   className,
   slideClassName,
+  mobileOnly = true,
 }: MobileCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number | null>(null);
@@ -35,13 +38,16 @@ export default function MobileCarousel({
     const slideElements = Array.from(
       track.querySelectorAll<HTMLElement>("[data-mobile-carousel-slide]"),
     );
-    const nextIndex = slideElements.reduce(
-      (closest, slide, index) => {
-        const distance = Math.abs(slide.offsetLeft - track.scrollLeft);
-        return distance < closest.distance ? { index, distance } : closest;
-      },
-      { index: 0, distance: Number.POSITIVE_INFINITY },
-    ).index;
+    const isAtEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+    const nextIndex = isAtEnd
+      ? slideElements.length - 1
+      : slideElements.reduce(
+          (closest, slide, index) => {
+            const distance = Math.abs(slide.offsetLeft - track.scrollLeft);
+            return distance < closest.distance ? { index, distance } : closest;
+          },
+          { index: 0, distance: Number.POSITIVE_INFINITY },
+        ).index;
 
     setActiveIndex((prev) => (prev === nextIndex ? prev : nextIndex));
   }, []);
@@ -78,7 +84,7 @@ export default function MobileCarousel({
   if (!slides.length) return null;
 
   return (
-    <div className={cn("md:hidden", className)} data-mobile-carousel-theme={theme}>
+    <div className={cn(mobileOnly && "md:hidden", className)} data-mobile-carousel-theme={theme}>
       <div
         className={cn(
           "mb-4 flex items-center justify-between gap-4 border-t pt-4",
@@ -134,13 +140,13 @@ export default function MobileCarousel({
         <div
           ref={trackRef}
           onScroll={handleScroll}
-          className="flex snap-x snap-proximity gap-4 overflow-x-auto overscroll-x-contain pb-5 [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden"
+          className="flex items-start snap-x snap-proximity gap-4 overflow-x-auto overscroll-x-contain pb-5 [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden"
         >
           {slides.map((slide, index) => (
             <div
               key={index}
               data-mobile-carousel-slide
-              className={cn("w-[calc(100%-1rem)] min-w-0 shrink-0 snap-start", slideClassName)}
+              className={cn("w-[calc(100%-1rem)] min-w-0 shrink-0 snap-start self-start", slideClassName)}
             >
               {slide}
             </div>

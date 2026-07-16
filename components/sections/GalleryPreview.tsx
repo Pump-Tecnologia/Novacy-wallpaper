@@ -1,10 +1,10 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import MobileCarousel from "@/components/MobileCarousel";
-import { fadeUp, staggerContainer, staggerItem } from "@/lib/animations";
+import ZoomableImage from "@/components/ui/ZoomableImage";
+import { fadeUp } from "@/lib/animations";
 
 interface GalleryImage { src: string | null; alt: string; aspect: string }
 interface GalleryPreviewProps {
@@ -40,57 +40,27 @@ export default function GalleryPreview({ heading, subheading, images, cta }: Gal
           </Link>
         </motion.div>
 
-        <MobileCarousel label="Installation Gallery">
+        <MobileCarousel
+          label="Installation Gallery"
+          mobileOnly={false}
+          slideClassName="w-[calc(100%-1rem)] sm:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-2rem)/3)]"
+        >
           {images.map((img, i) => (
             <div
               key={i}
               className={`${galleryAspect} relative overflow-hidden border border-gray-200 border-t-accent bg-gray-100`}
             >
               {img.src ? (
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="h-full w-full object-cover"
-                />
+                <ZoomableImage src={img.src} alt={img.alt} />
               ) : (
                 <div className="flex h-full w-full items-center justify-center p-4 text-center font-mono text-xs text-gray-400">
                   [{img.alt}]
                 </div>
               )}
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,31,84,0)_0%,rgba(0,31,84,0.16)_100%)]" />
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,31,84,0)_0%,rgba(0,31,84,0.16)_100%)]" />
             </div>
           ))}
         </MobileCarousel>
-
-        <motion.div
-          className="hidden md:grid md:grid-cols-3 gap-3"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {images.map((img, i) => (
-            <motion.div
-              key={i}
-              variants={staggerItem}
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className={`${galleryAspect} overflow-hidden bg-gray-100 relative group`}
-            >
-              {img.src ? (
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-gray-400 font-mono text-xs p-4 text-center">
-                  [{img.alt}]
-                </div>
-              )}
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
