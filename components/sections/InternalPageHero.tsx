@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface InternalPageHeroProps {
   eyebrow: string;
   title: string;
@@ -5,6 +7,7 @@ interface InternalPageHeroProps {
   description: string;
   backgroundImage?: string;
   backgroundPosition?: string;
+  cta?: { label: string; href: string };
 }
 
 export default function InternalPageHero({
@@ -14,6 +17,7 @@ export default function InternalPageHero({
   description,
   backgroundImage,
   backgroundPosition = "center",
+  cta,
 }: InternalPageHeroProps) {
   return (
     <section className="relative min-h-[420px] overflow-hidden bg-[#004198] text-white md:min-h-[520px]">
@@ -51,13 +55,21 @@ export default function InternalPageHero({
             {accent && (
               <>
                 <br />
-                <span className="text-accent">{accent}</span>
+                <span className="text-accent-on-dark">{accent}</span>
               </>
             )}
           </h1>
           <p className="mt-7 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
             {description}
           </p>
+          {cta && (
+            <Link
+              href={cta.href}
+              className="mt-8 inline-flex items-center justify-center bg-white px-8 py-4 text-xs font-bold uppercase tracking-[0.18em] text-primary transition-colors hover:bg-accent hover:text-white"
+            >
+              {cta.label}
+            </Link>
+          )}
         </div>
       </div>
     </section>

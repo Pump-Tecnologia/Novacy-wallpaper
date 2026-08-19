@@ -28,13 +28,13 @@ export default function Footer() {
             <p className="mt-3 text-[11px] leading-5 text-white/68 md:mt-7 md:text-sm md:leading-relaxed">
               {about}
             </p>
-            <p className="mt-3 text-[9px] font-bold uppercase tracking-[0.2em] text-white/45 md:mt-7 md:text-xs md:tracking-[0.24em]">
+            <p className="mt-3 text-[9px] font-bold uppercase tracking-[0.2em] text-white/60 md:mt-7 md:text-xs md:tracking-[0.24em]">
               {motto}
             </p>
           </div>
 
           <div className="lg:pl-2">
-            <h2 className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-accent md:mb-6 md:text-xs md:tracking-[0.24em]">
+            <h2 className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-accent-on-dark md:mb-6 md:text-xs md:tracking-[0.24em]">
               Menu
             </h2>
             <ul className="space-y-1.5 md:space-y-3.5">
@@ -53,7 +53,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h2 className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-accent md:mb-6 md:text-xs md:tracking-[0.24em]">
+            <h2 className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-accent-on-dark md:mb-6 md:text-xs md:tracking-[0.24em]">
               Services
             </h2>
             <ul className="space-y-1.5 md:space-y-3.5">
@@ -72,12 +72,12 @@ export default function Footer() {
           </div>
 
           <div className="col-span-2 md:col-span-1">
-            <h2 className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-accent md:mb-6 md:text-xs md:tracking-[0.24em]">
+            <h2 className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-accent-on-dark md:mb-6 md:text-xs md:tracking-[0.24em]">
               Contact
             </h2>
             <ul className="grid gap-1.5 md:block md:space-y-3.5">
               <li className="flex gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
+                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-on-dark" />
                 <span className="text-xs leading-relaxed text-white/68 md:text-sm">{brand.location}</span>
               </li>
               <li>
@@ -85,7 +85,7 @@ export default function Footer() {
                   href={`mailto:${brand.email}`}
                   className="group flex gap-3 text-xs leading-relaxed text-white/68 transition-colors hover:text-white md:text-sm"
                 >
-                  <Mail className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
+                  <Mail className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-on-dark" />
                   <span>{brand.email}</span>
                 </a>
               </li>
@@ -94,7 +94,7 @@ export default function Footer() {
                   href={brand.phoneHref}
                   className="group flex gap-3 text-xs leading-relaxed text-white/68 transition-colors hover:text-white md:text-sm"
                 >
-                  <Phone className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
+                  <Phone className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-on-dark" />
                   <span>{brand.phone}</span>
                 </a>
               </li>
@@ -102,7 +102,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-6 flex flex-col gap-2 border-t border-white/12 pt-4 text-[8px] font-bold uppercase tracking-[0.14em] text-white/45 md:mt-12 md:flex-row md:items-center md:justify-between md:pt-7 md:text-[10px] md:tracking-[0.18em]">
+        <div className="mt-6 flex flex-col gap-2 border-t border-white/12 pt-4 text-[8px] font-bold uppercase tracking-[0.14em] text-white/60 md:mt-12 md:flex-row md:items-center md:justify-between md:pt-7 md:text-[10px] md:tracking-[0.18em]">
           <p>© {year} {brand.name} {brand.tagline}</p>
           <p>
             Site crafted by{" "}
@@ -110,7 +110,7 @@ export default function Footer() {
               href={developer.href}
               target="_blank"
               rel="noreferrer"
-              className="text-white/70 transition-colors hover:text-accent"
+              className="text-white/70 transition-colors hover:text-accent-on-dark"
             >
               {developer.label}
             </a>

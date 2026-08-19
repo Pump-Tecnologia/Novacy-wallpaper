@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, Clock, Ruler, Wallpaper } from "lucide-react";
+import { ArrowRight, Camera, Package, Ruler } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import ContactRequestSection from "@/components/ContactRequestSection";
 import MobileCarousel from "@/components/MobileCarousel";
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "Request a wallpaper installation consultation with NOVACY across New York & New Jersey.",
 };
 
-const prepIcons = [Ruler, Wallpaper, Clock];
+const prepIcons = [Ruler, Camera, Package];
 
 type ContactPageProps = {
   searchParams: Promise<{ service?: string | string[] | undefined }>;
@@ -86,7 +86,7 @@ export default async function Contact({ searchParams }: ContactPageProps) {
               </p>
             </div>
 
-            <MobileCarousel label="Quote Inputs" theme="dark">
+            <MobileCarousel label="Before the Quote" theme="dark">
               {quotePrep.map((item, index) => {
                 const Icon = prepIcons[index] ?? ArrowRight;
 

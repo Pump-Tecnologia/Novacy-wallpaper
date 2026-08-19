@@ -19,7 +19,7 @@ interface BrandEssenceSectionProps {
 }
 
 const methodSummary: Record<string, string> = {
-  "01": "Scope, space, quote.",
+  "01": "Scope, measurements, quote.",
   "02": "Clean, smooth, ready.",
   "03": "Precision alignment, clean cuts, flawless finish.",
   "04": "Review, refine, approve.",
@@ -42,7 +42,7 @@ export default function BrandEssenceSection({
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
       >
-        <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch lg:gap-12">
           <div className="flex flex-col justify-between max-w-xl">
             <div>
               <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.24em] text-white/55">
@@ -87,10 +87,10 @@ export default function BrandEssenceSection({
 
         {process && (
           <div className="mt-16">
-            <p className="mb-8 text-[10px] font-bold uppercase tracking-[0.24em] text-white/50">
+            <p className="mb-8 hidden text-[10px] font-bold uppercase tracking-[0.24em] text-white/50 md:block">
               The Method
             </p>
-            <MobileCarousel label="Process Line" theme="dark">
+            <MobileCarousel label="The Method" theme="dark">
               {process.map((step) => (
                 <div
                   key={step.number}
@@ -117,7 +117,7 @@ export default function BrandEssenceSection({
                   {index < process.length - 1 && (
                     <div className="hidden md:block absolute left-9 right-[-1.5rem] top-[1.1rem] h-px bg-white/18" />
                   )}
-                  <div className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-accent/50 bg-primary text-[11px] font-bold text-accent">
+                  <div className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-accent/50 bg-primary text-[11px] font-bold text-accent-on-dark">
                     {step.number}
                   </div>
                   <div className="max-w-md pb-1 md:mt-5">

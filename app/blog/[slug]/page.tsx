@@ -77,7 +77,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <ArrowLeft className="h-4 w-4" />
                 Back to Journal
               </Link>
-              <div className="flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-[0.18em] text-gray-400">
+              <div className="flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-[0.18em] text-gray-500">
                 <span className="inline-flex items-center gap-2">
                   <CalendarDays className="h-4 w-4" />
                   {formatDate(post.date)}

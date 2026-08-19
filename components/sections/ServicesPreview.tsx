@@ -31,7 +31,7 @@ export default function ServicesPreview({ heading, subheading, items, cta }: Ser
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4"
+          className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 md:mb-16"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -50,7 +50,7 @@ export default function ServicesPreview({ heading, subheading, items, cta }: Ser
           </Link>
         </motion.div>
 
-        <MobileCarousel label="Service Paths">
+        <MobileCarousel label="Our Services">
           {items.map((item) => {
             const Icon = iconMap[item.iconKey] ?? House;
             return (
@@ -66,7 +66,7 @@ export default function ServicesPreview({ heading, subheading, items, cta }: Ser
                   <p className="text-[13px] leading-relaxed text-gray-500">{item.desc}</p>
                   {item.highlights && (
                     <div className="mt-7 border-t border-gray-100 pt-6">
-                      <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-400">
+                      <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">
                         Includes
                       </p>
                       <ul className="space-y-3">
@@ -81,12 +81,12 @@ export default function ServicesPreview({ heading, subheading, items, cta }: Ser
                   )}
                   {item.reservationKey && (
                     <div className="mt-7 border-t border-gray-100 pt-6">
-                      <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-400">
+                      <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">
                         Quote-Based Scope
                       </p>
                       <div className="flex flex-col gap-4">
                         <p className="text-[13px] leading-relaxed text-gray-500">
-                          Pricing is confirmed after measurements, photos, material, and wall condition are reviewed.
+                          Every project is quoted individually based on measurements, material, wall condition, and installation complexity.
                         </p>
                         <Link
                           href={`/contact?service=${item.reservationKey}`}
@@ -125,7 +125,9 @@ export default function ServicesPreview({ heading, subheading, items, cta }: Ser
                   <Icon className="h-6 w-6" strokeWidth={1.75} />
                 </div>
                 <div className="relative flex flex-1 flex-col">
-                  <h3 className="text-primary font-bold text-lg mb-3">
+                  {/* min-h = 2 linhas de text-lg: iguala titulos de 1 e 2 linhas
+                      para que Includes / Quote-Based Scope / CTA alinhem entre os cards */}
+                  <h3 className="mb-3 min-h-[3.5rem] text-lg font-bold text-primary">
                     {item.title}
                   </h3>
                   <p className="text-gray-500 text-sm leading-relaxed">
@@ -133,7 +135,7 @@ export default function ServicesPreview({ heading, subheading, items, cta }: Ser
                   </p>
                   {item.highlights && (
                     <div className="mt-7 pt-6 border-t border-gray-100">
-                      <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-400">
+                      <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">
                         Includes
                       </p>
                       <ul className="space-y-3">
@@ -151,12 +153,12 @@ export default function ServicesPreview({ heading, subheading, items, cta }: Ser
                   )}
                   {item.reservationKey && (
                     <div className="mt-7 pt-6 border-t border-gray-100">
-                      <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-400">
+                      <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">
                         Quote-Based Scope
                       </p>
                       <div className="flex flex-col gap-4">
                         <p className="text-sm leading-relaxed text-gray-500">
-                          Pricing is confirmed after measurements, photos, material, and wall condition are reviewed.
+                          Every project is quoted individually based on measurements, material, wall condition, and installation complexity.
                         </p>
                         <Link
                           href={`/contact?service=${item.reservationKey}`}
@@ -164,7 +166,7 @@ export default function ServicesPreview({ heading, subheading, items, cta }: Ser
                         >
                           Request Quote
                         </Link>
-                        <p className="text-xs leading-relaxed text-gray-400">
+                        <p className="text-xs leading-relaxed text-gray-500">
                           A 50% deposit secures the project date after quote approval.
                         </p>
                       </div>

@@ -53,7 +53,7 @@ export default function GalleryPreview({ heading, subheading, images, cta }: Gal
               {img.src ? (
                 <ZoomableImage src={img.src} alt={img.alt} />
               ) : (
-                <div className="flex h-full w-full items-center justify-center p-4 text-center font-mono text-xs text-gray-400">
+                <div className="flex h-full w-full items-center justify-center p-4 text-center font-mono text-xs text-gray-500">
                   [{img.alt}]
                 </div>
               )}

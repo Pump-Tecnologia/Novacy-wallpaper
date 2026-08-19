@@ -95,12 +95,17 @@ export default function MobileCarousel({
           <p
             className={cn(
               "text-[10px] font-bold uppercase tracking-[0.24em]",
-              isDark ? "text-white/50" : "text-gray-400",
+              isDark ? "text-white/50" : "text-gray-500",
             )}
           >
             {label}
           </p>
-          <p className="mt-2 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+          <p
+            className={cn(
+              "mt-2 text-xs font-bold uppercase tracking-[0.2em]",
+              isDark ? "text-accent-on-dark" : "text-accent",
+            )}
+          >
             {String(activeIndex + 1).padStart(2, "0")} /{" "}
             {String(slides.length).padStart(2, "0")}
           </p>
@@ -110,9 +115,11 @@ export default function MobileCarousel({
           <button
             type="button"
             aria-label="Previous slide"
+            disabled={activeIndex === 0}
             onClick={() => goToSlide(Math.max(activeIndex - 1, 0))}
             className={cn(
               "flex h-10 w-10 items-center justify-center border transition-colors",
+              "disabled:pointer-events-none disabled:opacity-40",
               isDark
                 ? "border-white/35 text-white hover:border-white hover:bg-white hover:text-primary"
                 : "border-gray-200 text-primary hover:border-accent hover:text-accent",
@@ -123,9 +130,11 @@ export default function MobileCarousel({
           <button
             type="button"
             aria-label="Next slide"
+            disabled={activeIndex === slides.length - 1}
             onClick={() => goToSlide(Math.min(activeIndex + 1, slides.length - 1))}
             className={cn(
               "flex h-10 w-10 items-center justify-center border transition-colors",
+              "disabled:pointer-events-none disabled:opacity-40",
               isDark
                 ? "border-white bg-white text-primary hover:border-accent hover:bg-accent hover:text-white"
                 : "border-accent bg-accent text-white hover:bg-primary",
@@ -162,7 +171,7 @@ export default function MobileCarousel({
             aria-label={`Go to slide ${index + 1}`}
             onClick={() => goToSlide(index)}
             className={cn(
-              "h-px flex-1 transition-colors",
+              "h-[3px] flex-1 transition-colors",
               index === activeIndex
                 ? "bg-accent"
                 : isDark

@@ -62,7 +62,7 @@ export default function TestimonialsTeaser({ heading, reviews, cta }: Testimonia
               </p>
               <div className="mt-6 border-t border-gray-100 pt-5">
                 <p className="text-sm font-bold text-primary">{review.name}</p>
-                <p className="mt-0.5 text-xs text-gray-400">{review.location}</p>
+                <p className="mt-0.5 text-xs text-gray-500">{review.location}</p>
               </div>
             </div>
           ))}
@@ -87,7 +87,7 @@ export default function TestimonialsTeaser({ heading, reviews, cta }: Testimonia
               </p>
               <div className="mt-6 pt-5 border-t border-gray-100">
                 <p className="font-bold text-primary text-sm">{review.name}</p>
-                <p className="text-xs text-gray-400 mt-0.5">{review.location}</p>
+                <p className="text-xs text-gray-500 mt-0.5">{review.location}</p>
               </div>
             </motion.div>
           ))}

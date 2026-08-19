@@ -33,11 +33,11 @@ export default function CtaBanner({ heading, subheading, cta, integrated = false
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-5">{heading}</h2>
         {subheading && (
-          <p className="text-lg opacity-70 mb-10 max-w-xl mx-auto">{subheading}</p>
+          <p className="text-lg opacity-85 mb-10 max-w-xl mx-auto">{subheading}</p>
         )}
         <Link
           href={cta.href}
-          className="inline-block bg-accent text-white px-10 py-4 font-bold tracking-widest text-xs uppercase hover:bg-white hover:text-primary transition-colors duration-300"
+          className="inline-block bg-white text-primary px-10 py-4 font-bold tracking-widest text-xs uppercase hover:bg-accent hover:text-white transition-colors duration-300"
         >
           {cta.label}
         </Link>

@@ -38,7 +38,7 @@ function FieldLabel({ label, required = false }: FieldLabelProps) {
           *
         </span>
       ) : (
-        <span className="text-[10px] font-medium tracking-[0.16em] text-gray-400">
+        <span className="text-[10px] font-medium tracking-[0.16em] text-gray-500">
           (Optional)
         </span>
       )}
@@ -158,7 +158,7 @@ export default function ContactForm({
           required
           name="name"
           type="text"
-          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-500 focus:border-accent"
           placeholder="Your name"
         />
       </div>
@@ -168,7 +168,7 @@ export default function ContactForm({
           required
           name="email"
           type="email"
-          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-500 focus:border-accent"
           placeholder="you@example.com"
         />
       </div>
@@ -178,7 +178,7 @@ export default function ContactForm({
           required
           name="phone"
           type="tel"
-          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-500 focus:border-accent"
           placeholder="(000) 000-0000"
         />
       </div>
@@ -200,7 +200,7 @@ export default function ContactForm({
         <input
           name="location"
           type="text"
-          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-500 focus:border-accent"
           placeholder="City, state, or neighborhood"
         />
       </div>
@@ -209,7 +209,7 @@ export default function ContactForm({
         <input
           name="dimensions"
           type="text"
-          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-500 focus:border-accent"
           placeholder="Example: 12 ft x 9 ft, 2 walls"
         />
       </div>
@@ -229,7 +229,7 @@ export default function ContactForm({
         <input
           name="materialDetails"
           type="text"
-          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-500 focus:border-accent"
           placeholder="Type, brand, roll size, or not sure yet"
         />
       </div>
@@ -238,7 +238,7 @@ export default function ContactForm({
         <input
           name="timeline"
           type="text"
-          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-500 focus:border-accent"
           placeholder="ASAP, this month, flexible..."
         />
       </div>
@@ -247,7 +247,7 @@ export default function ContactForm({
         <input
           name="photoLink"
           type="url"
-          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-500 focus:border-accent"
           placeholder="Google Drive, Dropbox, iCloud..."
         />
       </div>
@@ -256,7 +256,7 @@ export default function ContactForm({
         <textarea
           name="message"
           rows={5}
-          className="w-full min-w-0 resize-none border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+          className="w-full min-w-0 resize-none border border-gray-200 bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-gray-500 focus:border-accent"
           placeholder="Tell us about the room, wall condition, wallpaper material, timeline, and any important details."
         />
       </div>

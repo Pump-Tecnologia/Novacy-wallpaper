@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { homeContent, homeExtras } from "@/lib/content";
 import HeroSection       from "@/components/sections/HeroSection";
+import StatsBar          from "@/components/sections/StatsBar";
 import ServicesPreview   from "@/components/sections/ServicesPreview";
 import BrandEssenceSection from "@/components/sections/BrandEssenceSection";
 import GalleryPreview    from "@/components/sections/GalleryPreview";
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const { hero, brandEssence } = homeContent;
-  const { process, servicesPreview, gallery, ctaBanner } = homeExtras;
+  const { stats, process, servicesPreview, gallery, ctaBanner } = homeExtras;
 
   return (
     <LightboxProvider>
@@ -33,7 +34,10 @@ export default function Home() {
         theme="dark"
       />
 
-      {/* 2 — SERVIÇOS PREVIEW */}
+      {/* 2 — PROVA (stats) */}
+      <StatsBar stats={stats} />
+
+      {/* 3 — SERVIÇOS PREVIEW */}
       <ServicesPreview
         heading={servicesPreview.heading}
         subheading={servicesPreview.subheading}
@@ -41,7 +45,7 @@ export default function Home() {
         cta={servicesPreview.cta}
       />
 
-      {/* 3 — BRAND ESSENCE */}
+      {/* 4 — BRAND ESSENCE */}
       <div className="relative overflow-hidden bg-[#004198] text-white">
         <div
           aria-hidden="true"
@@ -60,7 +64,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 4 — GALERIA */}
+      {/* 5 — GALERIA */}
       <GalleryPreview
         heading={gallery.heading}
         subheading={gallery.subheading}
@@ -68,7 +72,7 @@ export default function Home() {
         cta={gallery.cta}
       />
 
-      {/* 5 — CTA FINAL */}
+      {/* 6 — CTA FINAL */}
       <CtaBanner
         heading={ctaBanner.heading}
         subheading={ctaBanner.subheading}

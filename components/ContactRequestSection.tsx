@@ -114,7 +114,7 @@ export default function ContactRequestSection({
                       <Icon className="h-4 w-4" />
                     </span>
                     <span>
-                      <span className="block text-[10px] font-bold uppercase tracking-[0.22em] text-gray-400">
+                      <span className="block text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">
                         {method.label}
                       </span>
                       <span className="mt-1 block text-sm font-bold text-primary">
@@ -152,7 +152,7 @@ export default function ContactRequestSection({
                       <Icon className="h-4 w-4" />
                     </span>
                     <span>
-                      <span className="block text-[10px] font-bold uppercase tracking-[0.22em] text-gray-400">
+                      <span className="block text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">
                         {method.label}
                       </span>
                       <span className="mt-1 block text-sm font-bold text-primary">

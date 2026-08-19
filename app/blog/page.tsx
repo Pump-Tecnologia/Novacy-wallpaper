@@ -72,12 +72,12 @@ export default function Blog() {
                       <BookOpen className="h-4 w-4" />
                       Featured Guide
                     </span>
-                    <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-gray-400">
+                    <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-gray-500">
                       <CalendarDays className="h-4 w-4" />
                       {formatDate(featuredPost.date)}
                     </span>
                   </div>
-                  <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-gray-400">
+                  <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-gray-500">
                     {featuredPost.category}
                   </p>
                   <h2 className="mb-5 text-3xl font-bold leading-tight text-primary md:text-4xl">
@@ -144,11 +144,11 @@ export default function Blog() {
 
                   <div className="flex flex-1 flex-col p-5">
                     <div className="mb-5 flex justify-end">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400">
+                      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500">
                         {formatDate(post.date)}
                       </span>
                     </div>
-                    <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-400">
+                    <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">
                       {post.category}
                     </p>
                     <h3 className="mb-4 text-lg font-bold leading-tight text-primary">
@@ -194,11 +194,11 @@ export default function Blog() {
                       <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent">
                         {String(index + 2).padStart(2, "0")}
                       </span>
-                      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400">
+                      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500">
                         {formatDate(post.date)}
                       </span>
                     </div>
-                    <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-400">
+                    <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">
                       {post.category}
                     </p>
                     <h3 className="mb-4 text-xl font-bold leading-tight text-primary transition-colors group-hover:text-accent">

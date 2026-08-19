@@ -59,7 +59,7 @@ export const homeContent = {
 
   brandEssence: {
     heading: "More Than Installation",
-    body: "NOVACY transforms interiors through precision wallpaper installation and architectural detail.",
+    body: "NOVACY brings precision wallpaper installation and architectural detail to luxury interiors across New York and New Jersey.",
     cta: { label: "WHY NOVACY", href: "/about" },
     image: "/images/home/brand-essence-detail.png",
     imagePlaceholder: "800x800 — Architectural wallpaper pattern detail",
@@ -74,7 +74,7 @@ export const aboutContent = {
     headline: "Nearly a Decade of",
     headlineAccent: "Precision",
     subheadline:
-      "Built from almost ten years of residential and commercial wallpaper experience, NOVACY transforms walls with structure, craft, and architectural care.",
+      "Backed by nearly a decade of residential and commercial wallpaper experience, NOVACY transforms walls with structure, craft, and architectural care.",
     backgroundImage: "/hero/hero-after.png",
     backgroundPosition: "center right",
   },
@@ -86,7 +86,7 @@ export const aboutContent = {
     imagePlaceholder: "Team at work / measuring / wall preparation",
     paragraphs: [
       "NOVACY began after years of hands-on installation work, technical learning, and real recognition in the residential and commercial wallpaper market.",
-      "After almost ten years working with different materials, surfaces, and high-end projects, the company was created to represent a clear standard: professional execution, refined finishing, and care in every detail.",
+      "After nearly a decade working with different materials, surfaces, and high-end projects, the company was created to represent a clear standard: professional execution, refined finishing, and care in every detail.",
       "The goal was never just to install wallpaper. It was to transform interiors through precision, clean work, and results that feel above the ordinary.",
     ],
   },
@@ -95,11 +95,11 @@ export const aboutContent = {
     sectionLabel: "The Name",
     nova: {
       title: "Nova",
-      desc: "Represents renewal — the idea of something new emerging within a space, transforming the environment and bringing new life to it. It is the moment of change.",
+      desc: "Represents renewal — the emergence of something new within a space, transforming its atmosphere and bringing it to life. It marks the moment of transformation.",
     },
     legacy: {
       title: "Legacy",
-      desc: "Represents permanence. It symbolizes something that remains — something that leaves a lasting mark even after the work itself has been completed.",
+      desc: "Represents permanence. It symbolizes something enduring — a mark that remains long after the work is complete.",
     },
     quote:
       "NOVACY does not simply install wallpaper. It transforms spaces and builds visual legacies within them.",
@@ -108,7 +108,7 @@ export const aboutContent = {
   differentiators: {
     heading: "Why NOVACY",
     subheading:
-      "Wallpaper installation depends on preparation, precision, and experience. Choosing only by the lowest price often leads to repairs, replacements, and results that do not last.",
+      "Wallpaper installation depends on preparation, precision, and experience. Choosing based only on price often leads to costly repairs, replacements, and disappointing results.",
     items: [
       {
         title: "First-Time Quality",
@@ -118,7 +118,7 @@ export const aboutContent = {
       },
       {
         title: "Clear Communication",
-        desc: "Clear expectations from the first call to the final walkthrough, including schedule, wallpaper details, and site needs.",
+        desc: "Clear expectations from the first call to the final walkthrough — covering scheduling, wallpaper details, and job site requirements.",
         image: "/images/about/standard-consultation.png",
         imagePlaceholder: "Consultation / site walkthrough",
       },
@@ -130,7 +130,7 @@ export const aboutContent = {
       },
       {
         title: "Real Value, Not Just Price",
-        desc: "Durable results and high-end finishing that add value beyond the number on the quote.",
+        desc: "Durable results and high-end finishing that deliver value well beyond the quoted price.",
         image: "/images/about/standard-final-detail.png",
         imagePlaceholder: "Finished wallpaper detail / final room",
       },
@@ -157,11 +157,11 @@ export const aboutContent = {
   mvv: {
     mission: {
       title: "Mission",
-      desc: "To transform interiors through wallpaper installations executed with precision, care, clean preparation, and high-end finishing.",
+      desc: "To transform interiors through precision wallpaper installation, meticulous preparation, and exceptional craftsmanship.",
     },
     vision: {
       title: "Vision",
-      desc: "To become one of the most trusted names in premium residential and commercial wallpaper installation across New York & New Jersey.",
+      desc: "To become the benchmark for premium wallpaper installation in New York & New Jersey, recognized for exceptional craftsmanship, precision, and reliability.",
     },
     values: {
       title: "Values",
@@ -236,9 +236,14 @@ export const servicesContent = {
           "Brooklyn",
           "Queens",
           "Long Island",
+        ],
+      },
+      {
+        title: "NYC Neighborhoods",
+        items: [
+          "Upper East Side",
           "SoHo",
           "Tribeca",
-          "Upper East Side",
           "Williamsburg",
           "Dumbo",
         ],
@@ -281,7 +286,7 @@ export const servicesContent = {
     {
       title: "Commercial Installation",
       eyebrow: "Offices / Retail / Hospitality",
-      desc: "Precision commercial installation designed for operational spaces where durability and minimal disruption matter.",
+      desc: "Precision wallpaper installation for commercial spaces where durability, efficiency, and minimal disruption matter.",
       bestFor: "Gyms, offices, stores, restaurants, hotels, corporate spaces, reception areas, corridors, and shared commercial interiors.",
       outcome: "A professional finish that complements the space without interrupting business operations.",
       materials: [
@@ -300,8 +305,8 @@ export const servicesContent = {
     },
     {
       title: "Wallpaper Removal & Surface Prep",
-      eyebrow: "Removal / Repair / Ready-to-Install Walls",
-      desc: "Careful removal and wall preparation for surfaces that need a clean, sealed foundation before new wallpaper can perform correctly.",
+      eyebrow: "Removal / Repair / Surface Prep",
+      desc: "Professional wallpaper removal and meticulous wall preparation — a clean, sealed surface, ready for installation.",
       bestFor: "Old wallpaper, adhesive residue, damaged surfaces, uneven walls, skim coat needs, and rooms being prepared for a new installation.",
       outcome: "A properly prepared surface ready for long-lasting wallpaper installation.",
       materials: [
@@ -490,11 +495,11 @@ export const contactContent = {
     headline: "Start Your",
     headlineAccent: "Project",
     subheadline:
-      "Tell us about the space, wallpaper, and project location. NOVACY will review the scope and define the next step.",
+      "Tell us about the space, wallpaper, and project location. NOVACY will review your project and outline the next steps.",
     backgroundImage: "/hero/hero-after.png",
     backgroundPosition: "center right",
   },
-  heading: "Request Project Consultation",
+  heading: "Request a Project Consultation",
   subheading:
     "Share the essentials and we will respond with the next step for your project.",
   serviceOptions: [
@@ -523,7 +528,7 @@ export const contactContent = {
   quotePrep: [
     {
       title: "Wall Dimensions",
-      desc: "Approximate width, height, number of walls, and whether ceilings or closets are included.",
+      desc: "Approximate wall width, height, number of walls, and whether ceilings or closets are included.",
     },
     {
       title: "Project Photos",
@@ -531,14 +536,14 @@ export const contactContent = {
     },
     {
       title: "Material Status",
-      desc: "Let us know the wallpaper type, brand, roll size, and whether the material is already ordered.",
+      desc: "Tell us the wallpaper type, brand, roll size, and whether the material has already been ordered.",
     },
   ],
   depositNote:
-    "After the quote is approved, a 50% deposit is required to secure the project date.",
+    "Once your quote is approved, a 50% deposit is required to secure your project date.",
   imagePlaceholder: "Team consultation / site walkthrough",
   image: "/images/contact/default-consultation.png",
-  submitLabel: "REQUEST PROJECT CONSULTATION",
+  submitLabel: "REQUEST A PROJECT CONSULTATION",
 } as const;
 
 // ─── FOOTER ──────────────────────────────────────────────────
@@ -565,7 +570,7 @@ export const homeExtras = {
   stats: [
     { value: "10+",  label: "Years of Experience" },
     { value: "500+", label: "Installations Completed" },
-    { value: "4",    label: "States Served" },
+    { value: "2",    label: "States Served" },
   ],
 
   process: {
@@ -597,27 +602,27 @@ export const homeExtras = {
 
   servicesPreview: {
     heading: "Specialized Wallpaper Services",
-    subheading: "Specialized wallpaper solutions for residential and commercial spaces, with proper preparation for long-lasting results.",
+    subheading: "Residential and commercial installations built on engineered surface preparation, exact pattern alignment, and finishes made to last.",
     cta: { label: "VIEW ALL SERVICES", href: "/services" },
     items: [
       {
         title: "Residential Installation",
-        desc: "Precise installation for bedrooms, bathrooms, living rooms, closets, hallways, ceilings, accent walls, and full homes.",
-        highlights: ["Pattern alignment", "Clean edges", "Occupied-home care"],
+        desc: "Flawless wallpaper installation for bedrooms, bathrooms, living rooms, closets, hallways, ceilings, accent walls, and full homes — finished clean, precise, and built to last.",
+        highlights: ["Seamless pattern matching", "Clean edges", "Occupied-home care"],
         iconKey: "residential",
         reservationKey: "residential",
       },
       {
         title: "Commercial Installation",
-        desc: "Durable, schedule-conscious installation for offices, gyms, restaurants, hotels, stores, and corporate spaces.",
-        highlights: ["Low disruption", "Large wall coverage", "Professional finish"],
+        desc: "Professional wallpaper installation for offices, hotels, restaurants, retail stores, gyms, and commercial spaces — durable finishes, delivered on schedule.",
+        highlights: ["Low disruption", "Large-scale projects", "Premium workmanship"],
         iconKey: "commercial",
         reservationKey: "commercial",
       },
       {
         title: "Wallpaper Removal & Surface Prep",
-        desc: "Removal, repairs, skim coat, sanding, primer, sealing, and preparation for correct adhesion and durability.",
-        highlights: ["Wallpaper removal", "Surface correction", "Ready-to-install walls"],
+        desc: "Wallpaper removal, wall repairs, skim coating, sanding, priming, and sealing — the complete surface preparation that proper adhesion depends on.",
+        highlights: ["Wallpaper removal", "Wall repairs & surface correction", "Ready-to-install surfaces"],
         iconKey: "removal",
         reservationKey: "removal",
       },
@@ -633,7 +638,7 @@ export const homeExtras = {
 
   gallery: {
     heading: "Featured Installations",
-    subheading: "A selection of residential and commercial installations across New York and New Jersey.",
+    subheading: "A selection of premium residential and commercial wallpaper installations across New York and New Jersey.",
     cta: { label: "VIEW SERVICES", href: "/services" },
     images: [
       { src: "/images/home/dark-botanical-wallpaper-installation-bedroom.jpg", alt: "Dark botanical wallpaper installation — bedroom suite", aspect: "wide" },
@@ -641,7 +646,8 @@ export const homeExtras = {
       { src: "/images/home/vintage-bird-mural-accent-wall.png", alt: "Vintage bird mural — accent wall installation", aspect: "portrait" },
       { src: "/images/home/tropical-jungle-mural-bedroom-feature-wall.png", alt: "Tropical jungle mural — primary bedroom feature wall", aspect: "portrait" },
       { src: "/images/home/curved-wall-jungle-mural-commercial-space.png", alt: "Curved-wall jungle mural — commercial space installation", aspect: "portrait" },
-      { src: "/images/home/dark-botanical-mural-exposed-brick.png", alt: "Moody botanical mural with exposed brick — residential installation", aspect: "portrait" },
+      { src: "/images/home/dramatic-cloud-mural-bedroom-headboard-wall.jpeg", alt: "Dramatic cloudscape mural — bedroom headboard wall installation", aspect: "wide" },
+      { src: "/images/home/black-and-white-peony-mural-bedroom-accent-wall.jpeg", alt: "Black-and-white peony mural — bedroom accent wall installation", aspect: "portrait" },
       { src: "/images/home/panoramic-scenic-mural-entry-hallway.png", alt: "Panoramic scenic landscape mural — entry hallway", aspect: "wide" },
     ],
   },

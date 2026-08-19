@@ -40,6 +40,7 @@ export default function Services() {
         description={hero.subheading}
         backgroundImage={hero.backgroundImage}
         backgroundPosition={hero.backgroundPosition}
+        cta={{ label: "REQUEST A QUOTE", href: "/contact" }}
       />
 
       <AnimatedSection>
@@ -72,7 +73,7 @@ export default function Services() {
                         <Icon className="h-4 w-4" />
                       </span>
                     </div>
-                    <p className="relative mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-400">
+                    <p className="relative mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">
                       {service.eyebrow}
                     </p>
                     <h2 className="relative mb-4 text-xl font-bold leading-tight text-primary">
@@ -108,7 +109,7 @@ export default function Services() {
                         <Icon className="h-4 w-4" />
                       </span>
                     </div>
-                    <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-400">
+                    <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">
                       {service.eyebrow}
                     </p>
                     <h2 className="mb-4 text-xl font-bold leading-tight text-primary transition-colors group-hover:text-accent">
@@ -131,9 +132,6 @@ export default function Services() {
         <section className="border-t border-gray-200 bg-gray-50 py-14 md:hidden">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="mb-8">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-accent">
-                Service Details
-              </p>
               <h2 className="text-3xl font-bold leading-tight text-primary">
                 Scope, Finish, Standard
               </h2>
@@ -434,7 +432,7 @@ export default function Services() {
               ))}
             </MobileCarousel>
 
-            <div className="hidden gap-4 md:grid md:grid-cols-2">
+            <div className="hidden gap-4 md:grid md:grid-cols-3">
               {serviceAreas.groups.map((group) => (
                 <div key={group.title} className="border border-gray-200 border-t-accent bg-white">
                   <div className="border-b border-gray-200 p-4">
@@ -442,18 +440,18 @@ export default function Services() {
                       {group.title}
                     </h3>
                   </div>
-                  <div className="grid sm:grid-cols-2">
+                  <div className="grid">
                     {group.items.map((area, index) => (
                       <div
                         key={area}
-                        className={`flex items-center gap-3 p-4 ${
+                        className={`flex min-w-0 items-center gap-3 p-4 ${
                           index < group.items.length - 1 ? "border-b border-gray-200" : ""
-                        } sm:[&:nth-child(odd)]:border-r`}
+                        }`}
                       >
                         <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center border border-accent/25 text-accent">
                           <MapPin className="h-3.5 w-3.5" />
                         </span>
-                        <span className="text-sm font-bold text-primary">{area}</span>
+                        <span className="min-w-0 text-sm font-bold text-primary">{area}</span>
                       </div>
                     ))}
                   </div>
